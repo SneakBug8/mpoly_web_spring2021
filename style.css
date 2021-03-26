@@ -1,0 +1,44 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+h1{
+  text-align: center;
+}
+
+
+.container{
+  margin: 1%;
+  display: flex;
+}
+
+.item{
+  width: 100px;
+  height: 100px;
+  margin: 2%;
+  color: white;
+  background-color: green;
+  font-size: 30px;
+  text-align: center;
+}
+
+.item p{
+  padding: 35px;
+}
+
+.justify{
+  justify-content:space-around;
+}
+
+.center{
+  justify-content: center;
+}
+
+.direction{
+  flex-direction: column;
+}
+
+.reverse{
+  flex-direction: column-reverse;
+}
