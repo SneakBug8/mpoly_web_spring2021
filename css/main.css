@@ -1,51 +1,46 @@
-
-
-.row > div{
-  text-align: center;
+.container {
+    max-width: 800px;
+    margin: auto;
 }
-
-.row > div > p{
-  margin: 0;
-}
-
-.row > div:nth-child(2){
-  background-color: lightgray;
-}
-
-center{
-  text-align: center;
-}
-
 
 @media print {
-   #addResp{
-     display: none;
-   }
-
-   h5{
-     font-size: 2em;
-     text-align: center;
-   }
-
-   p{
-     font-size: 1.15em;
-	 text-align: left;
-   }
-
-   tr{
-     border: 2px solid black;
-     box-shadow: none;
-   }
- 
-	.row > div:nth-child(2){
-		background-color: #fff;
-		border: 1px solid black;
-		box-shadow: none;
-	}
-	
-	
-	@page{
-		size: A4;
-		margin: 1cm;
-	}
- }
+    @page {
+        margin-left: 3cm;
+        margin-right: 1cm;
+    }
+    .container {
+        max-width: none;
+    }
+    h2 {
+        page-break-before: always;
+    }
+    .page {
+        page-break-after: always;
+    }
+    .hide {
+        display: none;
+    }
+    p {
+        page-break-inside: avoid;
+        widows: 2;
+        orphans: 1;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    a[href^="http"]:not([href*="mospolytech.ru"]):after {
+        content: " (" attr(href) ")";
+    }
+    h5 {
+        font-size: 2em;
+        text-align: center;
+    }
+    p {
+        font-size: 1.15em;
+        text-align: left;
+    }
+    @page {
+        size: A4;
+        margin: 1cm;
+    }
+}
