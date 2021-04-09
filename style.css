@@ -210,6 +210,11 @@ input[type="submit"]:hover,
     display: table;
 }
 
+.site-title {
+    font-size: 150%;
+    font-weight: bold;
+}
+
 .logo {
     position: relative;
     width: 60px;
@@ -264,6 +269,7 @@ ul.hormenu {
     }
     .hormenu li a {
         width: min(100%, 100vw);
+        border-right: none;
     }
 }
 
@@ -279,6 +285,7 @@ ul.hormenu {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    border-right: 1px solid black;
 }
 
 .hormenu li a:hover {
@@ -366,16 +373,26 @@ ul.hormenu {
     }
 }
 
+.points {
+    z-index: 5;
+    top: 2em;
+    position: absolute;
+    right: 2em;
+    background-color: white;
+    padding: 0.5em;
+    border: 1px solid black;;
+}
+
 .bush1 {
-    width: 400px;
+    width: 30%;
 }
 
 .bush2 {
-    width: 400px;
+    width: 30%;
     animation-delay: 2s;
 }
 
 .bush3 {
-    width: 400px;
+    width: 30%;
     animation-delay: 4s;
 }
