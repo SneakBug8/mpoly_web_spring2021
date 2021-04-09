@@ -25,18 +25,18 @@
         </nav>
         <nav class="gamemenu">
             <ul class="hormenu">
-                <li><a href="/register">Регистрация</a></li>
-                <li><a href="/game">Страница игры</a></li>
+                <li><a href="register.html">Регистрация</a></li>
+                <li><a href="game.html">Страница игры</a></li>
             </ul>
         </nav>
         <section class="form parallax">
             <div class="vertical-center">
                 <h3>Играть!</h3>
-                <form class="clearfix" action="/game.html">
+                <form class="clearfix" action="game.html">
                     <fieldset>
                         <legend>Форма входа</legend>
-                        <label for="login">Логин</label><input type="text" name="login" placeholder="Логин..." required>
-                        <label for="password">Пароль</label><input type="password" name="password"
+                        <label for="login">Логин</label><input id="login" type="text" name="login" placeholder="Логин..." required title="Введите ваш логин">
+                        <label for="password">Пароль</label><input id="password" type="password" name="password" title="Введите ваш пароль"
                             placeholder="Пароль..." required>
                         <label><a href="/">Забыли пароль?</a></label><input type="submit" value="Вход">
                     </fieldset>
@@ -80,9 +80,9 @@
         </article>
         <article class="info info--col-2">
             <h3>Изображения</h3>
-            <img id="bush1" alt="" src="bush1.png">
-            <img id="bush2" alt="" src="bush2.png">
-            <img id="bush3" alt="" src="bush3.png">
+            <img class="bush1" title="Куст зелёный раскидистый" alt="Куст зелёный раскидистый" src="bush1.png">
+            <img class="bush2" title="Куст с цветами" alt="Куст с цветами" src="bush2.png">
+            <img class="bush3" title="Куст зелёный с ветками" alt="Куст зелёный с ветками" src="bush3.png">
         </article>
     </div>
 </body>
