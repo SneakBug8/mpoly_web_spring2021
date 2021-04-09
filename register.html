@@ -8,16 +8,15 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous" type="text/javascript">
-    </script>
+        </script>
 </head>
 
 <body class="preload">
     <div class="grid-container">
         <header class="menu menu--col-1">
-            <svg class="logo" height="60" width="60">
-                <rect x="10" y="10" rx="10" ry="10" width="40" height="40"
-                    style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
-            </svg>
+            <object class="logo" type="image/svg+xml" data="image.svg">
+                <img src="image.svg" />
+            </object>
             <h2 class="vertical-center"><a href="/">Название игры</a></h2>
         </header>
         <nav class="menu menu--col-2 clearfix">
@@ -35,15 +34,19 @@
                 <form class="clearfix">
                     <fieldset>
                         <legend>Форма регистрации</legend>
-                        <label for="fio">ФИО</label><input id="fio" type="text" name="fio" placeholder="ФИО..." title="Фамилия имя отчество">
-                        <label for="organization">Организация</label><input id="organization" type="text" name="organization" title="Компания, где вы работаете"
-                            placeholder="Организация...">
-                        <label for="email">Email</label><input type="email" id="email" name="email" placeholder="Email..." title="Адрес электронной почты">
-                        <label for="login">Логин</label><input type="text" id="login" name="login" placeholder="Логин..." required title="Желаемое имя пользователя">
-                        <label for="password">Пароль</label><input type="password" id="password" name="password" title="Желаемый пароль"
-                            placeholder="Пароль..." required>
-                        <label for="password-repeat">Повторите пароль</label><input type="password" id="password-repeat" title="Подтверждение пароля"
-                            name="password-repeat" placeholder="Повторите пароль..." required>
+                        <label for="fio">ФИО</label><input id="fio" type="text" name="fio" placeholder="ФИО..."
+                            title="Фамилия имя отчество">
+                        <label for="organization">Организация</label><input id="organization" type="text"
+                            name="organization" title="Компания, где вы работаете" placeholder="Организация...">
+                        <label for="email">Email</label><input type="email" id="email" name="email"
+                            placeholder="Email..." title="Адрес электронной почты">
+                        <label for="login">Логин</label><input type="text" id="login" name="login"
+                            placeholder="Логин..." required title="Желаемое имя пользователя">
+                        <label for="password">Пароль</label><input type="password" id="password" name="password"
+                            title="Желаемый пароль" placeholder="Пароль..." required>
+                        <label for="password-repeat">Повторите пароль</label><input type="password" id="password-repeat"
+                            title="Подтверждение пароля" name="password-repeat" placeholder="Повторите пароль..."
+                            required>
                         <input type="submit" class="clear" value="Вход">
                     </fieldset>
                 </form>

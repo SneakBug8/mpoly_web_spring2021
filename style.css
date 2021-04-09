@@ -296,6 +296,7 @@ ul.hormenu {
     background-color: rgba(0, 0, 0, 0.9);
     overflow-x: hidden;
     transition: 0.5s;
+    overflow-y: hidden;
 }
 
 .overlay__content {
@@ -335,19 +336,20 @@ ul.hormenu {
 .game {
     position: relative;
     min-height: 60vh;
+    overflow-y: hidden;
 }
 
 #img1 {
     display: block;
     width: min(100vh, 200px);
-    position: absolute;
-    top: 0;
-    transition: top 5s;
+    position: relative;
+    bottom: 0;
+    transition: bottom 5s;
     z-index: 1;
 }
 
 #img1:hover {
-    top: 1000px;
+    bottom: 1000px;
 }
 
 .bush {
