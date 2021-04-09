@@ -55,6 +55,7 @@ body {
 
 .menu.menu--col-2 {
     padding-top: 1em;
+    min-height: 2em;
 }
 
 .menu.menu--col-full {
@@ -65,32 +66,33 @@ body {
     grid-column: 1 / span 2;
 }
 
+.game--col-full {
+    grid-column: 1;
+}
+
 @media (min-width: 800px) {
     .grid-container {
         grid: auto auto auto / 50% 50%;
     }
-
     .menu.menu--col-1 {
         grid-column: 1;
     }
-
     .menu.menu--col-2 {
         grid-column: 2;
     }
-
     .form,
     .gamemenu {
         grid-column: 1 / span 2;
     }
-
     .info.info--col-1 {
         grid-column: 1;
     }
-
     .info.info--col-2 {
         grid-column: 2;
     }
-
+    .game.game--col-full {
+        grid-column: 1 / span 2;
+    }
     .info img {
         display: block;
         margin: 1em;
@@ -129,7 +131,10 @@ img {
 }
 
 #author {
-    margin-right: 1em;
+    margin: auto;
+    width: 100%;
+    display: block;
+    text-align: center;
 }
 
 .form {
@@ -153,7 +158,6 @@ form label {
 .parallax {
     background-image: url("/parallax.jpg");
     min-height: 400px;
-
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -252,14 +256,12 @@ ul.hormenu {
         width: 100%;
         flex-direction: column;
     }
-
     .hormenu li {
         width: 100%;
         height: auto;
     }
-
     .hormenu li a {
-        width: 100vw;
+        width: min(100%, 100vw);
     }
 }
 
@@ -285,7 +287,7 @@ ul.hormenu {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     left: 0;
     top: 0;
     background-color: rgb(0, 0, 0);
@@ -328,7 +330,6 @@ ul.hormenu {
     .overlay a {
         font-size: 20px
     }
-
     .overlay .overlay__closebtn {
         font-size: 40px;
         top: 15px;
@@ -346,20 +347,37 @@ ul.hormenu {
     position: absolute;
     top: 0;
     transition: top 5s;
+    z-index: 1;
 }
 
 #img1:hover {
     top: 1000px;
 }
 
-#bush1 {
+.bush {
+    animation: move 5s linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move {
+    50% {
+        transform: translateY(50px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.bush1 {
     width: 400px;
 }
 
-#bush2 {
+.bush2 {
     width: 400px;
+    animation-delay: 2s;
 }
 
-#bush3 {
+.bush3 {
     width: 400px;
+    animation-delay: 4s;
 }

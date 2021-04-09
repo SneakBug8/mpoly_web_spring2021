@@ -35,14 +35,14 @@
                 <form class="clearfix">
                     <fieldset>
                         <legend>Форма регистрации</legend>
-                        <label for="fio">ФИО</label><input type="text" name="fio" placeholder="ФИО...">
-                        <label for="organization">Организация</label><input type="text" name="organization"
+                        <label for="fio">ФИО</label><input id="fio" type="text" name="fio" placeholder="ФИО..." title="Фамилия имя отчество">
+                        <label for="organization">Организация</label><input id="organization" type="text" name="organization" title="Компания, где вы работаете"
                             placeholder="Организация...">
-                        <label for="email">Email</label><input type="email" name="email" placeholder="Логин...">
-                        <label for="login">Логин</label><input type="text" name="login" placeholder="Логин..." required>
-                        <label for="password">Пароль</label><input type="password" name="password"
+                        <label for="email">Email</label><input type="email" id="email" name="email" placeholder="Email..." title="Адрес электронной почты">
+                        <label for="login">Логин</label><input type="text" id="login" name="login" placeholder="Логин..." required title="Желаемое имя пользователя">
+                        <label for="password">Пароль</label><input type="password" id="password" name="password" title="Желаемый пароль"
                             placeholder="Пароль..." required>
-                        <label for="password-repeat">Повторите пароль</label><input type="password"
+                        <label for="password-repeat">Повторите пароль</label><input type="password" id="password-repeat" title="Подтверждение пароля"
                             name="password-repeat" placeholder="Повторите пароль..." required>
                         <input type="submit" class="clear" value="Вход">
                     </fieldset>
@@ -86,9 +86,9 @@
         </article>
         <article class="info info--col-2">
             <h3>Изображения</h3>
-            <img src="https://dummyimage.com/400x400/fff/ff0000">
-            <img src="https://dummyimage.com/400x400/fff/00ff00">
-            <img src="https://dummyimage.com/400x400/fff/0000ff">
+            <img class="bush1" alt="" src="bush1.png">
+            <img class="bush2" alt="" src="bush2.png">
+            <img class="bush3" alt="" src="bush3.png">
         </article>
     </div>
 </body>
