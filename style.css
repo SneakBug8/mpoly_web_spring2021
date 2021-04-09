@@ -1,0 +1,328 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    color: black;
+}
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+h2 {
+    display: inline;
+}
+
+p {
+    line-height: 1.5;
+    max-width: 65ch;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+*::selection {
+    background: #163807;
+}
+
+.v-container {
+    position: relative;
+}
+
+.float-left {
+    float: left;
+}
+
+.grid-container {
+    display: grid;
+    grid: auto auto auto auto auto auto / auto;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.menu.menu--col-2 {
+    padding-top: 1em;
+}
+
+.menu.menu--col-full {
+    grid-column: 1 / span 2;
+}
+
+.info.info--col-full {
+    grid-column: 1 / span 2;
+}
+
+@media (min-width: 800px) {
+    .grid-container {
+        grid: auto auto auto / 50% 50%;
+    }
+
+    .menu.menu--col-1 {
+        grid-column: 1;
+    }
+
+    .menu.menu--col-2 {
+        grid-column: 2;
+    }
+
+    .form,
+    .gamemenu {
+        grid-column: 1 / span 2;
+    }
+
+    .info.info--col-1 {
+        grid-column: 1;
+    }
+
+    .info.info--col-2 {
+        grid-column: 2;
+    }
+
+    .info img {
+        display: block;
+        margin: 1em;
+    }
+}
+
+img {
+    max-width: min(100%, 100vw);
+    height: auto;
+}
+
+.form,
+.info {
+    padding: 1em;
+}
+
+.menu {
+    background-color: #e6e6e6;
+    position: relative;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.menu h2 {
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+#author {
+    margin-right: 1em;
+}
+
+.form {
+    position: relative;
+}
+
+form input {
+    float: right;
+    color: black;
+}
+
+form label {
+    float: left;
+    margin-right: 1em;
+}
+
+form label {
+    clear: both;
+}
+
+.parallax {
+    background-image: url("/parallax.jpg");
+    min-height: 400px;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input[type="submit"],
+.button {
+    transition: background 1s;
+    background-color: #d1d1d1;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1em;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+.button:hover {
+    background-color: #2b2b2b;
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.logo {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+    margin-right: 1em;
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+ul.hormenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 800px) {
+    .gamemenu {
+        width: 100%;
+    }
+    ul.hormenu {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .hormenu li {
+        width: 100%;
+        height: auto;
+    }
+
+    .hormenu li a {
+        width: 100vw;
+    }
+}
+
+.hormenu li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hormenu li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.hormenu li a:hover {
+    background-color: #111;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay__content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a,
+.overlay p {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .overlay__closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay .overlay__closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+.game {
+    position: relative;
+}
+
+#img1 {
+    display: block;
+    width: min(100vh, 200px);
+    position: absolute;
+    top: 0;
+    transition: top 5s;
+}
+
+#img1:hover {
+    top: 1000px;
+}

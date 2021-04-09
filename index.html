@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous" type="text/javascript">
+    </script>
+</head>
+
+<body class="preload">
+    <div class="grid-container">
+        <header class="menu menu--col-1">
+            <svg class="logo" height="60" width="60">
+                <rect x="10" y="10" rx="10" ry="10" width="40" height="40"
+                    style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+            </svg>
+            <h2 class="vertical-center"><a href="/">Название игры</a></h2>
+        </header>
+        <nav class="menu menu--col-2 clearfix">
+            <span id="author" class="float-left">Наконечный П.А., 191-362, в1</span>
+            <a class="button float-left" href="/register.html">Регистрация</a>
+        </nav>
+        <nav class="gamemenu">
+            <ul class="hormenu">
+                <li><a href="/register">Регистрация</a></li>
+            </ul>
+        </nav>
+        <section class="form parallax">
+            <div class="vertical-center">
+                <h3>Играть!</h3>
+                <form class="clearfix" action="/game.html">
+                    <fieldset>
+                        <legend>Форма входа</legend>
+                    <label for="login">Логин</label><input type="text" name="login" placeholder="Логин..." required>
+                    <label for="password">Пароль</label><input type="password" name="password" placeholder="Пароль..."
+                        required>
+                    <label><a href="/">Забыли пароль?</a></label><input type="submit" value="Вход">
+                    </fieldset>
+                </form>
+
+            </div>
+        </section>
+        <article class="info info--col-1">
+            <h3>Описание</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec suscipit justo, at dignissim
+                erat. Aliquam rutrum cursus convallis. Suspendisse eget egestas nisl. Quisque blandit ullamcorper velit
+                vel luctus. Nullam ac ex elit. Quisque consequat at felis ut varius. Suspendisse malesuada enim
+                eleifend, venenatis diam blandit, sodales lorem. Aliquam magna ex, posuere in est nec, hendrerit
+                placerat turpis.</p>
+            <p>Duis gravida vestibulum dolor a tempus. Maecenas id euismod dui, non consequat felis. Aenean bibendum
+                consequat orci id gravida. Nulla auctor, dolor id varius efficitur, nunc mi varius lacus, in facilisis
+                mi augue ac massa. Vestibulum vitae commodo tortor. Quisque et tortor nec neque mollis commodo vel id
+                diam. Pellentesque suscipit commodo arcu ut condimentum. Proin sollicitudin tempus lacus, in efficitur
+                augue.</p>
+            <p>Nam ac maximus metus. Sed dictum cursus eros, ut volutpat magna porta ut. Proin vitae augue quis leo
+                finibus volutpat ac nec nisl. Fusce sodales tristique felis, vel ultrices dolor tempor et. Morbi mollis
+                ex ac ligula vulputate luctus. Quisque finibus felis scelerisque lacus sagittis tristique. Nulla aliquet
+                quis justo id consectetur. Suspendisse potenti. Nunc in sodales lectus. Sed ac luctus leo, ut pharetra
+                lectus. Cras sit amet leo vitae enim vulputate ultrices.</p>
+            <p>Proin sagittis lobortis mauris, non lobortis metus fringilla vel. Ut tincidunt elementum libero, ut
+                imperdiet urna tempor eget. Quisque cursus dolor ac pulvinar malesuada. Nulla lorem nunc, rhoncus non
+                consequat sit amet, scelerisque in ex. Morbi sit amet laoreet odio, id mattis sapien. Proin eu risus sit
+                amet lorem luctus sodales in ut mauris. Maecenas aliquet risus ipsum, vitae varius tellus cursus vitae.
+                Suspendisse mattis ultrices lectus eget tristique. Fusce eget nibh vulputate, rhoncus nisl id, blandit
+                ante. Duis posuere dignissim ante, ac hendrerit turpis placerat ac. Curabitur non faucibus turpis.
+                Curabitur enim libero, porta at quam eget, semper venenatis lorem. In id pretium arcu.</p>
+            <p>Maecenas ligula augue, rutrum ut cursus at, tempor sed nisl. Fusce consectetur est justo, id rutrum dolor
+                pharetra id. Sed in laoreet velit. Vivamus nec ipsum leo. Duis auctor dui at nisi porta, id posuere sem
+                scelerisque. Sed diam nunc, rhoncus sed vehicula vitae, luctus ut ante. Cras vitae enim vitae ipsum
+                varius hendrerit. Praesent non est pellentesque, elementum elit quis, rhoncus enim. Aenean placerat
+                neque id urna tempus, vitae consectetur neque gravida. Mauris euismod leo arcu, non lobortis velit
+                rhoncus id. In suscipit, odio non dictum elementum, urna dolor laoreet lectus, vel iaculis ante sapien
+                non augue. Maecenas sed est augue. Donec imperdiet sodales blandit. Maecenas hendrerit, diam ac molestie
+                iaculis, dui massa semper dui, et sagittis sem nisl et augue. Donec sit amet scelerisque metus, id
+                malesuada libero. Sed vehicula sed magna tempor elementum.</p>
+        </article>
+        <article class="info info--col-2">
+            <h3>Изображения</h3>
+            <img alt="" src="https://dummyimage.com/400x400/fff/ff0000">
+            <img alt="" src="https://dummyimage.com/400x400/fff/00ff00">
+            <img alt="" src="https://dummyimage.com/400x400/fff/0000ff">
+        </article>
+    </div>
+</body>
+<script src="/script.js" type="text/javascript"></script>
+
+</html>
