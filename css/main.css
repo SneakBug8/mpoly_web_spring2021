@@ -3,6 +3,14 @@
     margin: auto;
 }
 
+img {
+    max-width: 100%;
+}
+
+.imgwithcaption span {
+    font-style: italic;
+}
+
 @media print {
     @page {
         margin-left: 3cm;
@@ -42,5 +50,8 @@
     @page {
         size: A4;
         margin: 1cm;
+    }
+    .imgwithcaption {
+        page-break-inside: avoid;
     }
 }
