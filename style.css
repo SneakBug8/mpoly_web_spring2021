@@ -11,7 +11,31 @@ h1{
 
 .container{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-flow: column;
+}
+
+.container.named {
+  grid-template-areas:
+  "fi s"
+  "t fo";
+}
+
+.fi {
+  grid-area: fi;
+}
+
+.s {
+  grid-area: s;
+}
+
+.t {
+  grid-area: t;
+}
+
+.fo {
+  grid-area: fo;
 }
 
 .gap{
