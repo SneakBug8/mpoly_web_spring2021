@@ -52,3 +52,75 @@ header {
 a {
 	text-decoration: none;
 }
+
+.links_list a {
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 0.2px;
+	color: #FFFFFF;
+}
+
+.get_in_touch_block {
+	max-width: 321px;
+	flex: 1;
+	height: 152.5px;
+}
+
+.get_in_touch_link {
+	margin-left: 10px;
+}
+
+.get_in_touch_links {
+	height: 108.5px;
+}
+
+.get_in_touch_links li {
+	display: flex;
+	align-items: center;
+}
+
+.footer_social {
+	min-height: 74px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer_social_content {
+	max-width: 1050px;
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+}
+
+.right_reserved {
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 0.2px;
+	color: #737373;
+}
+
+.footer_social_links {
+	display: flex;
+	justify-content: space-between;
+	width: 156px;
+	margin: 0 auto;
+}
+
+.footer_social_links_wrapper {
+	width: 236px;
+}
+
+.hidden_text {
+	display: none;
+}
+
+.hidden_nav {
+	display: none;
+}
