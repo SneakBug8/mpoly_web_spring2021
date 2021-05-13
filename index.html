@@ -5,7 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/white.css">
-	<title>Kanban</title>
+	<link rel="stylesheet" href="css/dark.css">
+	<title>Канбан</title>
 </head>
 
 <body>
@@ -165,7 +166,7 @@
 								<p>{{tsk.trust}}</p>
 							</div>
 							<div class="task__wrap-img">
-								<button>
+								<button @click="edit(index)">
 									<svg class="svg-edit" :class="[isActive ? 'd-svg-edit' : '']" viewBox="0 -1 401.52289 401"
 										style="width: 100%;" xmlns="http://www.w3.org/2000/svg">
 										<path
@@ -195,6 +196,7 @@
 			<p>Made with ❤ by <a href="https://sneakbug8.com">Paul Nakonechnyy</a></p>
 		</footer>
 	</div>
+
 	<script src="js/vue.min.js"></script>
 	<script src="js/main.js"></script>
 </body>

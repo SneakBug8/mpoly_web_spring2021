@@ -132,6 +132,27 @@ const methods = {
 			} else
 				alert("Заполните все поля");
 		},
+		edit(index) {
+			this.mod = true;
+			this.check = true;
+			for (i in this.tasks) {
+				if (this.tasks[i]['local_name'].includes(index + 1)) {
+					if (this.tasks[i]['status'] == "plan")
+						this.obj.statusCheck = "plan"
+					else if (this.tasks[i]['status'] == "work")
+						this.obj.statusCheck = "work"
+					else if (this.tasks[i]['status'] == "done")
+						this.obj.statusCheck = "done"
+					this.obj.naming = this.tasks[i]['local_name'];
+					this.obj.nameTask = this.tasks[i]['nameTask'];
+					this.obj.dateStart = this.tasks[i]['dateStart'];
+					this.obj.dateEnd = this.tasks[i]['dateEnd'];
+					this.obj.trust = this.tasks[i]['trust'];
+					this.obj.status = this.tasks[i]['status']
+				}
+			}
+			this.statusCheck();
+		},
 		complite(index) {
 			for (let i = 0; i < this.tasks.length; i++) {
 				if (this.tasks[i]['local_name'].includes(index + 1)) {
