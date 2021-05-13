@@ -16,13 +16,18 @@
 	outline: none;
 }
 
+/*
+Lab 12
+Made by Nakonechnyy Paul
+*/
+
 a {
-	color: red;
+	color: #db2929;
 	transition: .4s;
 }
 
 a:hover {
-	color: blue;
+	color: #2929c4;
 }
 
 a:focus,
@@ -101,7 +106,7 @@ a:hover {
 }
 
 .wrap-theme__label {
-	color: black;
+	color: green;
 	margin-right: 20px;
 	transition: .4s;
 }
@@ -110,7 +115,7 @@ a:hover {
 	height: 36px;
 	width: 70px;
 	border-radius: 50px;
-	background: #2e52a081;
+	background: green;
 	color: #fff;
 	display: flex;
 	align-items: center;
@@ -370,6 +375,8 @@ a:hover {
 	transition: .4s;
 }
 
+
+
 .box__title {
 	margin: 20px 20px;
 }
@@ -425,6 +432,15 @@ a:hover {
 .task__wrap-img button {
 	width: 100%;
 	margin-left: 10px;
+}
+
+.task__wrap-img button * {
+	transition: .4s;
+}
+
+.task__wrap-img button:hover * {
+	color: #0fc947;
+	fill: #0fc947;
 }
 
 .footer {
