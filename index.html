@@ -9,81 +9,87 @@
 </head>
 
 <body>
-	<div class="all">
-			<div class="wrap-modal" style="display: none;">
-				<form action="#" class="wrap-modal__form">
-					<button class="add__button-off"><span></span></button>
+	<div class="all" :class="[isActive ? 'd-all' : '']">
+		<transition name="fade">
+			<div class="wrap-modal" :class="[isActive ? 'd-wrap-modal' : '']" v-show="mod">
+				<form action="#" class="wrap-modal__form" :class="[isActive ? 'd-wrap-modal__form' : '']">
+					<button v-if="obj.statusCheck" class="add__button-off" :class="[isActive ? 'd-add__button-off' : '']"
+						@click="close()"><span></span></button>
 					<div class="inner-wrap__form">
-						<label class="wrap-modal__input">Описание
-							<input class="add__input" type="text" placeholder="Введите описание">
+						<label v-if="obj.statusCheck" class="wrap-modal__input"
+							:class="[isActive ? 'd-wrap-modal__input' : '']">Описание
+							<input v-model="obj.nameTask" class="add__input" :class="[isActive ? 'd-add__input' : '']"
+								value="{{newTask}}" type="text" placeholder="Введите описание">
 						</label>
-						<label class="wrap-modal__input">Статус
-							<select class="add__input" name="">
+						<label v-if="obj.statusCheck" class="wrap-modal__input"
+							:class="[isActive ? 'd-wrap-modal__input' : '']">Статус
+							<select v-model="obj.status" class="add__input" :class="[isActive ? 'd-add__input' : '']" name="">
 								<option selected disabled value="">Выберите статус</option>
 								<option value="plan">План</option>
 								<option value="work">В работе</option>
 								<option value="done">Готово</option>
 							</select>
 						</label>
-						<label class="wrap-modal__input">Ответственный
-							<input class="add__input" type="text" placeholder="Введите имя">
+						<label class="wrap-modal__input" :class="[isActive ? 'd-wrap-modal__input' : '']">Ответственный
+							<input :disabled="disableTrust" v-model="obj.trust" class="add__input"
+								:class="[isActive ? 'd-add__input' : '']" type="text" placeholder="Введите имя">
 						</label>
-						<label class="wrap-modal__input">Дата и время начала
-							<input class="add__input" type="text" placeholder="Введите дату начала">
+						<label v-if="obj.statusCheck" class="wrap-modal__input"
+							:class="[isActive ? 'd-wrap-modal__input' : '']">Дата и время начала
+							<input :disabled="disableDateStart" v-model="obj.dateStart" class="add__input"
+								:class="[isActive ? 'd-add__input' : '']" type="text" placeholder="Введите дату начала">
 						</label>
-						<label class="wrap-modal__input">Дата и время завершения
-							<input class="add__input" type="text" placeholder="Дата завершения">
+						<label v-if="obj.statusCheck" class="wrap-modal__input"
+							:class="[isActive ? 'd-wrap-modal__input' : '']">Дата и время завершения
+							<input v-model="obj.dateEnd" class="add__input" :class="[isActive ? 'd-add__input' : '']" type="text"
+								:disabled="disableDateEnd" placeholder="Дата завершения">
 						</label>
 					</div>
-					<button class="add__btn" type="submit"><span></span></button>
+					<button class="add__btn" :class="[isActive ? 'd-add__btn' : '']" type="submit"
+						@click="add(), c()"><span></span></button>
 				</form>
 			</div>
+		</transition>
 		<div class="inner__all">
 			<header class="header">
-				<h1 class="header__title">Kanban board</h1>
-				<h3 class="header__subtitle">By Nakonechnyy Paul</h1>
-				<div class="wrap-theme">
-					<span class="wrap-theme__label">Темная тема</span>
-					<div class="wrap-theme__mode">
-						<span class="wrap-theme__on"><span></span></span>
-						<span class="wrap-theme__cyrcle"></span>
-						<span class="wrap-theme__off"><span></span></span>
-					</div>
-				</div>
+				<h1 class="header__title" :class="[isActive ? 'd-header__title' : '']">Канбан</h1>
 			</header>
 
 			<main class="main">
 				<section class="add">
-					<label class="add__label">Добавить новую задачу
-						<input class="add__input" type="text" placeholder="Описание">
+					<label class="add__label" :class="[isActive ? 'd-add__label' : '']">Добавить новую задачу
+						<input class="add__input" :class="[isActive ? 'd-add__input' : '']" type="text" v-model="obj.nameTask"
+							placeholder="Описание">
 					</label>
-					<button class="add__button-on"><span></span></button>
+					<button class="add__button-on" :class="[isActive ? 'd-add__button-on' : '']"
+						@click="first(), c()"><span></span></button>
 				</section>
 				<section class="wrap__box">
-					<div class="box">
-						<h2 class="box__title">План (число)</h2>
-						<div class="task">
+					<div class="box" @drop='onDrop($event, "plan")' @dragover.prevent @dragenter.prevent
+						:class="[isActive ? 'd-box' : '']">
+						<h2 class="box__title">План ({{count.cPlan}})</h2>
+						<div class="task" :class="[isActive ? 'd-task' : '']" v-for="(tsk, index) in tasks" :key='tsk.nameTask'
+							draggable @dragstart='startDrag($event, tsk)' v-if="tsk.status ==='plan'">
 							<div class="task__wrap-text">
-								<h3 class="task__title">Название</h3>
-								<p class="task__desc">
-									Описание
+								<h3 class="task__title" :class="[isActive ? 'd-task__title' : '']">{{tsk.name}}</h3>
+								<p class="task__desc" :class="[isActive ? 'd-task__desc' : '']" v-if="tsk.nameTask !== '' ">
+									{{tsk.nameTask}}
 								</p>
 							</div>
 							<div class="task__wrap-img">
-								<button>
-									<svg class="svg-edit" viewBox="0 -1 401.52289 401" style="width: 100%;"
-										xmlns="http://www.w3.org/2000/svg">
+								<button @click="edit(index)">
+									<svg class="svg-edit" :class="[isActive ? 'd-svg-edit' : '']" viewBox="0 -1 401.52289 401"
+										style="width: 100%;" xmlns="http://www.w3.org/2000/svg">
 										<path
 											d="m370.589844 250.972656c-5.523438 0-10 4.476563-10 10v88.789063c-.019532 16.5625-13.4375 29.984375-30 30h-280.589844c-16.5625-.015625-29.980469-13.4375-30-30v-260.589844c.019531-16.558594 13.4375-29.980469 30-30h88.789062c5.523438 0 10-4.476563 10-10 0-5.519531-4.476562-10-10-10h-88.789062c-27.601562.03125-49.96875 22.398437-50 50v260.59375c.03125 27.601563 22.398438 49.96875 50 50h280.589844c27.601562-.03125 49.96875-22.398437 50-50v-88.792969c0-5.523437-4.476563-10-10-10zm0 0" />
 										<path
 											d="m376.628906 13.441406c-17.574218-17.574218-46.066406-17.574218-63.640625 0l-178.40625 178.40625c-1.222656 1.222656-2.105469 2.738282-2.566406 4.402344l-23.460937 84.699219c-.964844 3.472656.015624 7.191406 2.5625 9.742187 2.550781 2.546875 6.269531 3.527344 9.742187 2.566406l84.699219-23.464843c1.664062-.460938 3.179687-1.34375 4.402344-2.566407l178.402343-178.410156c17.546875-17.585937 17.546875-46.054687 0-63.640625zm-220.257812 184.90625 146.011718-146.015625 47.089844 47.089844-146.015625 146.015625zm-9.40625 18.875 37.621094 37.625-52.039063 14.417969zm227.257812-142.546875-10.605468 10.605469-47.09375-47.09375 10.609374-10.605469c9.761719-9.761719 25.589844-9.761719 35.351563 0l11.738281 11.734375c9.746094 9.773438 9.746094 25.589844 0 35.359375zm0 0" />
 									</svg>
 								</button>
-								<button>
-									<svg class="svg-complite" version="1.1" id="Capa_1"
-										xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-										x="0px" y="0px" viewBox="0 0 415.869 415.869" style="width: 100%;"
-										xml:space="preserve">
+								<button @click="complite(index)">
+									<svg class="svg-complite" :class="[isActive ? 'd-svg-complite' : '']" version="1.1" id="Capa_1"
+										xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+										viewBox="0 0 415.869 415.869" style="width: 100%;" xml:space="preserve">
 										<path d="M193.306,282.645L193.306,282.645c-4.702,0-8.882-2.09-11.494-5.224l-78.89-85.682
 										c-5.747-6.269-5.224-16.196,1.045-21.943c6.269-5.747,16.196-5.224,21.943,1.045l67.918,73.665L381.91,56.947
 										c6.269-6.269,16.196-6.269,21.943,0c6.269,6.269,6.269,16.196,0,21.943L204.278,277.943
@@ -97,34 +103,35 @@
 							</div>
 						</div>
 					</div>
-					<div class="box">
-						<h2 class="box__title">В работе (число)</h2>
-						<div class="task">
+					<div class="box" @drop='onDrop($event, "work")' @dragover.prevent @dragenter.prevent
+						:class="[isActive ? 'd-box' : '']">
+						<h2 class="box__title">В работе ({{count.cWork}})</h2>
+						<div class="task" :class="[isActive ? 'd-task' : '']" v-for="(tsk, index) in tasks" :key='tsk.nameTask'
+							draggable @dragstart='startDrag($event, tsk)' v-if="tsk.status ==='work'">
 							<div class="task__wrap-text">
-								<h3 class="task__title">Название</h3>
-								<p class="task__desc">
-									Описание
+								<h3 class="task__title" :class="[isActive ? 'd-task__title' : '']">{{tsk.name}}</h3>
+								<p class="task__desc" :class="[isActive ? 'd-task__desc' : '']" v-if="tsk.nameTask !== '' ">
+									{{tsk.nameTask}}
 								</p>
 								<h4>Дата и время начала</h4>
-								<p>12.12.2012</p>
+								<p>{{tsk.dateStart}}</p>
 								<h4>Ответственный</h4>
-								<p>Имя</p>
+								<p>{{tsk.trust}}</p>
 							</div>
 							<div class="task__wrap-img">
-								<button>
-									<svg class="svg-edit" viewBox="0 -1 401.52289 401" style="width: 100%;"
-										xmlns="http://www.w3.org/2000/svg">
+								<button @click="edit(index)">
+									<svg class="svg-edit" :class="[isActive ? 'd-svg-edit' : '']" viewBox="0 -1 401.52289 401"
+										style="width: 100%;" xmlns="http://www.w3.org/2000/svg">
 										<path
 											d="m370.589844 250.972656c-5.523438 0-10 4.476563-10 10v88.789063c-.019532 16.5625-13.4375 29.984375-30 30h-280.589844c-16.5625-.015625-29.980469-13.4375-30-30v-260.589844c.019531-16.558594 13.4375-29.980469 30-30h88.789062c5.523438 0 10-4.476563 10-10 0-5.519531-4.476562-10-10-10h-88.789062c-27.601562.03125-49.96875 22.398437-50 50v260.59375c.03125 27.601563 22.398438 49.96875 50 50h280.589844c27.601562-.03125 49.96875-22.398437 50-50v-88.792969c0-5.523437-4.476563-10-10-10zm0 0" />
 										<path
 											d="m376.628906 13.441406c-17.574218-17.574218-46.066406-17.574218-63.640625 0l-178.40625 178.40625c-1.222656 1.222656-2.105469 2.738282-2.566406 4.402344l-23.460937 84.699219c-.964844 3.472656.015624 7.191406 2.5625 9.742187 2.550781 2.546875 6.269531 3.527344 9.742187 2.566406l84.699219-23.464843c1.664062-.460938 3.179687-1.34375 4.402344-2.566407l178.402343-178.410156c17.546875-17.585937 17.546875-46.054687 0-63.640625zm-220.257812 184.90625 146.011718-146.015625 47.089844 47.089844-146.015625 146.015625zm-9.40625 18.875 37.621094 37.625-52.039063 14.417969zm227.257812-142.546875-10.605468 10.605469-47.09375-47.09375 10.609374-10.605469c9.761719-9.761719 25.589844-9.761719 35.351563 0l11.738281 11.734375c9.746094 9.773438 9.746094 25.589844 0 35.359375zm0 0" />
 									</svg>
 								</button>
-								<button>
-									<svg class="svg-complite" version="1.1" id="Capa_1"
-										xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-										x="0px" y="0px" viewBox="0 0 415.869 415.869" style="width: 100%;"
-										xml:space="preserve">
+								<button @click="complite(index)">
+									<svg class="svg-complite" :class="[isActive ? 'd-svg-complite' : '']" version="1.1" id="Capa_1"
+										xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+										viewBox="0 0 415.869 415.869" style="width: 100%;" xml:space="preserve">
 										<path d="M193.306,282.645L193.306,282.645c-4.702,0-8.882-2.09-11.494-5.224l-78.89-85.682
 										c-5.747-6.269-5.224-16.196,1.045-21.943c6.269-5.747,16.196-5.224,21.943,1.045l67.918,73.665L381.91,56.947
 										c6.269-6.269,16.196-6.269,21.943,0c6.269,6.269,6.269,16.196,0,21.943L204.278,277.943
@@ -138,34 +145,38 @@
 							</div>
 						</div>
 					</div>
-					<div class="box">
-						<h2 class="box__title">Готово (число)</h2>
-						<div class="task">
+					<div class="box" @drop='onDrop($event, "done")' @dragover.prevent @dragenter.prevent
+						:class="[isActive ? 'd-box' : '']">
+						<h2 class="box__title">Готово ({{count.cDone}})</h2>
+						<div class="task" :class="[isActive ? 'd-task' : '']" v-for="(tsk, index) in tasks" :key='tsk.nameTask'
+							draggable @dragstart='startDrag($event, tsk)' v-if="tsk.status ==='done'">
 							<div class="task__wrap-text">
-								<h3 class="task__title">Название</h3>
-								<p class="task__desc">
+								<h3 class="task__title" :class="[isActive ? 'd-task__title' : '']">{{tsk.name}}</h3>
+								<p class="task__desc" :class="[isActive ? 'd-task__desc' : '']" v-if="tsk.nameTask !== '' ">
+									{{tsk.nameTask}}
 								</p>
 								<h4>Количество потраченного времени</h4>
-								<p>12 часов</p>
+								<p>{{tsk.dateAll}}</p>
 								<h4>Дата и время начала</h4>
-								<p>12.12.2012</p>
+								<p>{{tsk.dateStart}}</p>
 								<h4>Дата и время окончания</h4>
-								<p>21.21.2021</p>
+								<p>{{tsk.dateEnd}}</p>
 								<h4>Ответственный</h4>
-								<p>Имя</p>
+								<p>{{tsk.trust}}</p>
 							</div>
 							<div class="task__wrap-img">
 								<button>
-									<svg class="svg-edit" viewBox="0 -1 401.52289 401" style="width: 100%;"
-										xmlns="http://www.w3.org/2000/svg">
+									<svg class="svg-edit" :class="[isActive ? 'd-svg-edit' : '']" viewBox="0 -1 401.52289 401"
+										style="width: 100%;" xmlns="http://www.w3.org/2000/svg">
 										<path
 											d="m370.589844 250.972656c-5.523438 0-10 4.476563-10 10v88.789063c-.019532 16.5625-13.4375 29.984375-30 30h-280.589844c-16.5625-.015625-29.980469-13.4375-30-30v-260.589844c.019531-16.558594 13.4375-29.980469 30-30h88.789062c5.523438 0 10-4.476563 10-10 0-5.519531-4.476562-10-10-10h-88.789062c-27.601562.03125-49.96875 22.398437-50 50v260.59375c.03125 27.601563 22.398438 49.96875 50 50h280.589844c27.601562-.03125 49.96875-22.398437 50-50v-88.792969c0-5.523437-4.476563-10-10-10zm0 0" />
 										<path
 											d="m376.628906 13.441406c-17.574218-17.574218-46.066406-17.574218-63.640625 0l-178.40625 178.40625c-1.222656 1.222656-2.105469 2.738282-2.566406 4.402344l-23.460937 84.699219c-.964844 3.472656.015624 7.191406 2.5625 9.742187 2.550781 2.546875 6.269531 3.527344 9.742187 2.566406l84.699219-23.464843c1.664062-.460938 3.179687-1.34375 4.402344-2.566407l178.402343-178.410156c17.546875-17.585937 17.546875-46.054687 0-63.640625zm-220.257812 184.90625 146.011718-146.015625 47.089844 47.089844-146.015625 146.015625zm-9.40625 18.875 37.621094 37.625-52.039063 14.417969zm227.257812-142.546875-10.605468 10.605469-47.09375-47.09375 10.609374-10.605469c9.761719-9.761719 25.589844-9.761719 35.351563 0l11.738281 11.734375c9.746094 9.773438 9.746094 25.589844 0 35.359375zm0 0" />
 									</svg>
 								</button>
-								<button>
-									<svg class="svg-del" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+								<button @click="deleteDesk(index), c()">
+									<svg class="svg-del" :class="[isActive ? 'd-svg-del' : '']" viewBox="0 0 512 512"
+										xmlns="http://www.w3.org/2000/svg">
 										<path
 											d="m256 512c-141.164062 0-256-114.835938-256-256s114.835938-256 256-256 256 114.835938 256 256-114.835938 256-256 256zm0-480c-123.519531 0-224 100.480469-224 224s100.480469 224 224 224 224-100.480469 224-224-100.480469-224-224-224zm0 0" />
 										<path
@@ -180,10 +191,12 @@
 				</section>
 			</main>
 		</div>
-		<footer class="footer">
+		<footer class="footer" :class="[isActive ? 'd-footer' : '']">
 			<p>Made with ❤ by <a href="https://sneakbug8.com">Paul Nakonechnyy</a></p>
 		</footer>
 	</div>
+	<script src="js/vue.min.js"></script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>
