@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="surfers.css">
+    <link href="css.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Surfers Co.</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        function defer(method) {
+            if (window.jQuery) {
+                method();
+            } else {
+                setTimeout(function () { defer(method) }, 50);
+            }
+        }
+
+        defer(function () {
+            $(window).ready(function () {
+                $("body").removeClass("preload");
+                console.log("Page loaded;");
+
+                $("#jquerytarget").text("New text added by JQUERY");
+            });
+        });
+
+    </script>
+</head>
+
+<body tracingsrc="9 surfers.png" tracingopacity="50" class="preload">
+    <header>
+        <div class="container">
+            <div class="row">
+                <h1 class="col-lg-2"><a href="#">Surfers Co.</a></h1>
+                <nav id="menu_mobile_button">
+                    <div class="menu_mobile_button_ligne"></div>
+                    <div class="menu_mobile_button_ligne"></div>
+                    <div class="menu_mobile_button_ligne"></div>
+                </nav>
+                <nav id="menu" class="menu_mobile menu_mobile_ferme col-12 offset-lg-1 col-lg-6">
+                    <ul>
+                        <li><a href="#good">BOARDS</a></li>
+                        <li><a href="#good">ACCESSORIES</a></li>
+                        <li><a href="#blog">BLOG</a></li>
+                        <li><a href="#good">TECHNOLOGY</a></li>
+                        <li><a href="#team">TEAM</a></li>
+                        <li><a href="#good">DEALERS</a></li>
+                    </ul>
+                </nav>
+                <div class="offset-lg-1 col-lg-2">
+                    <a href="#reach_social_facebook"><span id="header_facebook" class="fa fa-facebook"></span></a>
+                    <a href="#reach_social_instagram"><span id="header_instagram" class="fa fa-instagram"></span></a>
+                    <a href="#mail_button"><span id="header_mail" class="fa fa-envelope"></span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="titles">
+        <div class="container">
+            <div class="row">
+                <h2 id="jquerytarget" class="col-12">Ride evey wave as if it's your last</h2>
+                <h3 class="col-12">We love the motion of ocean</h3>
+            </div>
+        </div>
+    </section>
+    <section id="good">
+        <div class="container">
+            <div class="row">
+                <div id="good_container" class="offset-lg-1 col-lg-10">
+                    <div class="row">
+                        <div id="good1" class="col-lg-6">
+                            <div class="row">
+                                <div class="col-lg-9"><img id="good_board" src="https://placeimg.com/640/480/nature" />
+                                </div>
+                                <div id="good_miniatures_boards" class="col-lg-3"><img
+                                        class="good_miniatures_boards_active"
+                                        src="https://placeimg.com/120/120/nature" />
+                                    <img src="https://placeimg.com/120/120/nature" />
+                                    <img src="https://placeimg.com/120/120/nature" />
+                                    <img src="https://placeimg.com/120/120/nature" />
+                                </div>
+                            </div>
+                        </div>
+                        <div id="good2" class="col-lg-6">
+                            <div id="good_title_big" class="row">
+                                <h4 id="good_h4" class="col-10">
+                                    JR Surfboards The Donny Stoker<br>
+                                    Yellow/Green Rail Fade
+                                </h4>
+                                <div id="good_arrow_previous" class="col-1 good_arrow">
+                                    <span class="fa fa-arrow-left"></span>
+                                </div>
+                                <div id="good_arrow_next" class="col-1 good_arrow">
+                                    <span class="fa fa-arrow-right"></span>
+                                </div>
+                            </div>
+                            <div id="good_likes_block" class="row">
+                                <div id="good_stars_block" class="col-5 col-lg-4">
+                                    <i class="fa fa-star filled"></i>
+                                    <i class="fa fa-star filled"></i>
+                                    <i class="fa fa-star filled"></i>
+                                    <i class="fa fa-star filled"></i>
+                                    <i class="fa fa-star"></i>
+                                    <p id="reviews_number">(52)</p>
+                                </div>
+                                <p id="good_number_board" class="offset-5 col-2 offset-lg-6 col-lg-2">05/25</p>
+                            </div>
+                            <div id="good_menu_board" class="row">
+                                <ul class="col-12">
+                                    <li id="good_description" class="good_active_label">DESCRIPTION</li>
+                                    <li id="good_functions">FEATURES</li>
+                                    <li id="good_dimensions">DIMENSIONS</li>
+                                </ul>
+                            </div>
+                            <div id="good_board_continue" class="row">
+                                <p class="col-lg-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+                                    risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+                                    dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
+                                    euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi,
+                                    non fermentum diam nisl sit amet erat.</p>
+                            </div>
+                            <div id="good_price_button" class="row">
+                                <p id="good_price" class="col-5 col-lg-4">$499.99</p>
+                                <button id="good_button" class="col-4 col-sm-3" type="button">BUY NOW</button>
+                            </div>
+                            <div class="row">
+                                <p class="col-12"><a id="good_view_boards" href="#good">View all boards</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about_us">
+        <div id="about_us_container" class="container">
+            <div class="row">
+                <h4 class="col-12 grand_title">ABOUT US</h4>
+            </div>
+            <div id="about_us1" class="row">
+                <div id="about_us_left" class="offset-lg-1 col-lg-4">
+                    <div class="row">
+                        <h5 id="about_us_h5" class="col-12">WE ARE SURFERS CO.</h5>
+                    </div>
+                    <div id="about_us_text" class="row">
+                        <p class="col-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                            Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras
+                            elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
+                            Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl
+                            sit amet erat.</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-12"><a id="about_us_read_more" href="#about_us">Read more</a></p>
+                    </div>
+                </div>
+                <div id="about_us_video" class="offset-lg-1 col-lg-5"><img src="https://placeimg.com/640/480/nature" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="team">
+        <div class="container">
+            <div class="row">
+                <h4 class="col-12 grand_title">OUR TEAM</h4>
+            </div>
+            <div id="team_container" class="row">
+                <div id="team_previous" class="col-lg-1">
+                    <span class="team_arrow fa fa-arrow-left"></span>
+                </div>
+                <div id="team1" class="col-lg-3 team">
+                    <div class="row">
+                        <div class="col-lg-12"><img class="team_photo" src="https://placeimg.com/120/120/people" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 team_name">Taj Burrow</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 team_details">@tajamos</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 team_details">Yallingup, Australia</p>
+                    </div>
+                </div>
+                <div id="team2" class="col-lg-3 team">
+                    <div class="row">
+                        <div class="col-lg-12"><img class="team_photo" src="https://placeimg.com/120/120/people" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 team_name">Malia Manuel</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 team_details">@maliamanuel</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 team_details"> Wailua, Hai</p>
+                    </div>
+                </div>
+                <div id="team3" class="col-lg-3 team">
+                    <div class="row">
+                        <div class="col-lg-12"><img class="team_photo" src="https://placeimg.com/120/120/people" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 team_name">Ian Walsh</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 team_details">@ian.walsh</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 team_details"> Maui, Hi</p>
+                    </div>
+                </div>
+                <div id="team4" class="col-lg-3 team">
+                    <div class="row">
+                        <div class="col-lg-12"><img class="team_photo" src="https://placeimg.com/120/120/people" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 team_name">Macy Callaghan</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 team_details">@macyjanecallaghan</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 team_details">San Clemente, CA</p>
+                    </div>
+                </div>
+                <div id="team_next" class="col-lg-1">
+                    <span class="team_arrow fa fa-arrow-right"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="blog">
+        <div class="container">
+            <div class="row">
+                <h5 id="blog_h5" class="col-12">LATEST UPDATES</h5>
+            </div>
+            <div id="blog_photos" class="row">
+                <div class="offset-lg-2 col-lg-2 blog_card">
+                    <div class="row">
+                        <div class="blog_card_picture col-12"><img class="blog_photo"
+                                src="https://placeimg.com/200/120/any" /></div>
+                    </div>
+                    <div class="row">
+                        <p class="col-12 blog_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+                            risus. </p>
+                    </div>
+                </div>
+                <div class="offset-lg-1 col-lg-2 blog_card">
+                    <div class="row">
+                        <div class="blog_card_picture col-12"><img class="blog_photo"
+                                src="https://placeimg.com/200/120/any" /></div>
+                    </div>
+                    <div class="row">
+                        <p class="col-12 blog_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+                            risus. </p>
+                    </div>
+                </div>
+                <div class="offset-lg-1 col-lg-2 blog_card">
+                    <div class="row">
+                        <div class="blog_card_picture col-12"><img class="blog_photo"
+                                src="https://placeimg.com/200/120/any" /></div>
+                    </div>
+                    <div class="row">
+                        <p class="col-12 blog_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+                            risus. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row"><button id="blog_button" class="offset-2 col-8 offset-sm-4 col-sm-4 offset-lg-5 col-lg-2"
+                    type="button">VIEW ALL POSTS</button></div>
+        </div>
+    </section>
+    <section id="reach_social">
+        <div class="container">
+            <div class="row">
+                <div id="reach_social_instagram" class="col-lg-6">
+                    <div class="row">
+                        <h4 class="col-12">INSTAGRAM</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 reach_social_instagram_photo"><img
+                                src="https://placeimg.com/200/200/any" /></div>
+                        <div class="col-lg-6 reach_social_instagram_photo"><img
+                                src="https://placeimg.com/200/200/any" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 reach_social_instagram_photo"><img
+                                src="https://placeimg.com/200/200/any" /></div>
+                        <div class="col-lg-6 reach_social_instagram_photo"><img
+                                src="https://placeimg.com/200/200/any" /></div>
+                    </div>
+                    <div id="reach_social_panel_instagram" class="row">
+                        <p class="col-12"><span id="reach_social_instagram_our_profile"><a
+                                    href="https://twitter.com/SneakBug8">FOLLOW US</a></span> <span
+                                id="reach_social_instagram_mention">@SneakBug8</span></p>
+                    </div>
+                </div>
+                <div id="reach_social_facebook" class="offset-lg-1 col-lg-5">
+                    <div class="row">
+                        <p id="reach_social_facebook_title" class="col-12">facebook</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div id="copyright_label" class="row">
+                        <p class="col-12">Made with ❤ by <a href="https://sneakbug8.com">Pavel Nakonechnyy</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div id="footer_links" class="row">
+                        <div class="col-6 col-lg-4">
+                            <div class="row">
+                                <ul class="col-12">
+                                    <li><a href="https://sneakbug8.com">About</a></li>
+                                    <li><a href="https://sneakbug8.com">Boards</a></li>
+                                    <li><a href="https://sneakbug8.com">Accessories</a></li>
+                                    <li><a href="https://sneakbug8.com">Blog</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-4">
+                            <div class="row">
+                                <ul class="col-12">
+                                    <li><a href="https://sneakbug8.com">Technology</a></li>
+                                    <li><a href="https://sneakbug8.com">Team</a></li>
+                                    <li><a href="https://sneakbug8.com">Dealers</a></li>
+                                    <li><a href="https://sneakbug8.com">Contact us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mail_button" class="row">
+                        <p class="col-12">Subscribe to our newsletter</p>
+                    </div>
+                    <div id="mail_subscribe_input" class="row">
+                        <form id="mail_subscribe_input_form" class="col-11 col-lg-7" action="surfers.php" method="post">
+                            <input id="mail_subscribe_input" name="mail_button_mail" type="email"
+                                placeholder="Your e-mail" />
+                            <span id="mail_subscribe_input_button" class="fa fa-arrow-right"></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
