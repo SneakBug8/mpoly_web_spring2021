@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/white.css">
+	<link rel="stylesheet" href="css/dark.css">
 	<title>Kanban</title>
 </head>
 
@@ -53,6 +54,14 @@
 		<div class="inner__all">
 			<header class="header">
 				<h1 class="header__title" :class="[isActive ? 'd-header__title' : '']">Канбан</h1>
+				<div class="wrap-theme">
+					<span class="wrap-theme__label" :class="[isActive ? 'd-wrap-theme__label' : '']">Темная тема</span>
+					<div class="wrap-theme__mode" :class="[isActive ? 'd-wrap-theme__mode' : '']" @click="tc">
+						<span class="wrap-theme__on"><span></span></span>
+						<span class="wrap-theme__cyrcle" :class="[isActive ? 'active' : '']"></span>
+						<span class="wrap-theme__off"><span></span></span>
+					</div>
+				</div>
 			</header>
 
 			<main class="main">
@@ -195,6 +204,7 @@
 			<p>Made with ❤ by <a href="https://sneakbug8.com">Paul Nakonechnyy</a></p>
 		</footer>
 	</div>
+
 	<script src="js/vue.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
