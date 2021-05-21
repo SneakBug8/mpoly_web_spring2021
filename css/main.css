@@ -1,0 +1,49 @@
+.row {
+  margin-bottom: 1em;
+}
+.row>div {
+    text-align: center;
+    border: 1px solid black;
+    padding: 1em;
+}
+
+.row>div>p {
+    margin: 0;
+}
+
+center {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+@media print {
+    h5 {
+        font-size: 2em;
+        text-align: center;
+    }
+    p {
+        font-size: 1.15em;
+        text-align: left;
+    }
+    tr {
+        border: 2px solid black;
+        box-shadow: none;
+    }
+    .row>div:nth-child(2) {
+        background-color: #fff;
+        border: 1px solid black;
+        box-shadow: none;
+    }
+    @page {
+        size: A4;
+        margin: 1cm;
+    }
+}
