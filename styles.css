@@ -150,12 +150,12 @@ a {
 */
 
 .panels {
-    margin-top: 80px;
+    padding: 32px;
+    padding-top: 80px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 32px;
-    padding: 32px;
     background-color: white;
 }
 
@@ -175,6 +175,7 @@ a {
 .features_content {
     margin: 0 auto;
     display: flex;
+    max-width: 1400px;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -275,12 +276,11 @@ a {
 
 .wrapper {
     background-image: url('Images/worker.png');
-    /*background: center center;*/
-    max-width: 1440px;
+    background-position: center center;
     margin: 0 auto;
     background-repeat: no-repeat;
     min-height: 924px;
-    object-fit: scale-down;
+    background-size: cover;
 }
 
 .panels_content {
@@ -376,7 +376,7 @@ a {
 }
 
 .footer-content__contact-content {
-    max-width: 1050px;
+    max-width: 1400px;
     min-height: 62px;
     display: flex;
     align-items: center;
@@ -498,7 +498,7 @@ a {
 }
 
 .advice {
-    max-width: 1050px;
+    max-width: 1400px;
     min-height: 197px;
     padding-top: 45px;
     padding-bottom: 45px;
@@ -667,7 +667,7 @@ a {
 }
 
 .contact2_content {
-    max-width: 1050px;
+    max-width: 1400px;
     min-height: 740px;
     margin: 0 auto;
     display: flex;
@@ -866,7 +866,7 @@ a {
 }
 
 .contact_email {
-    max-width: 1050px;
+    max-width: 1400px;
     min-height: 164px;
     margin: 0 auto;
     display: flex;
@@ -875,7 +875,7 @@ a {
 }
 
 .logos {
-    max-width: 1050px;
+    max-width: 1400px;
     min-height: 175px;
     display: flex;
     justify-content: space-around;
@@ -915,7 +915,7 @@ a {
 }
 
 .about_content {
-    max-width: 1050px;
+    max-width: 1400px;
     min-height: 911px;
     margin: 0 auto;
     padding-top: 100px;
@@ -984,7 +984,7 @@ a {
 
 .features2_content {
     margin: 0 auto;
-    max-width: 1050px;
+    max-width: 1400px;
     min-height: 539px;
 }
 
@@ -1029,7 +1029,7 @@ html {
 
 .footer_links_content {
     min-height: 170px;
-    max-width: 1050px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -1113,7 +1113,7 @@ html {
 }
 
 .footer_social_content {
-    max-width: 1050px;
+    max-width: 1400px;
     flex: 1;
     padding: 8px;
     display: flex;
