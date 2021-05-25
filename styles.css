@@ -152,8 +152,11 @@ a {
 .panels {
     margin-top: 80px;
     display: flex;
-    justify-content: space-between;
-    max-width: 1046px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 32px;
+    background-color: white;
 }
 
 .panel {
@@ -163,8 +166,6 @@ a {
 }
 
 .features {
-    max-width: 1440px;
-    min-height: 526px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 80px;
@@ -172,8 +173,6 @@ a {
 }
 
 .features_content {
-    max-width: 1050px;
-    min-height: 366px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -231,7 +230,10 @@ a {
 
 .features_icons {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 32px;
 }
 
 .feature_icon_content {
@@ -278,18 +280,14 @@ a {
     margin: 0 auto;
     background-repeat: no-repeat;
     min-height: 924px;
-    background-size: 1440px 793px;
-    ;
+    object-fit: scale-down;
 }
 
 .panels_content {
-    margin-left: 40px;
-    margin-top: 35px;
-    margin-bottom: 35px;
+    margin: 32px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-direction: column;
-    height: 140px;
 }
 
 .panels_header {
@@ -324,17 +322,16 @@ a {
 }
 
 .footer-content {
-    min-height: 488px;
     background-color: #fff;
 }
 
 .footer-content__contact {
     min-height: 142px;
-    max-width: 1440px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    padding: 32px;
 }
 
 .h3 {
@@ -405,14 +402,13 @@ a {
 }
 
 .container {
-    max-width: 1046px;
     margin: 0 auto;
-    min-height: 788px;
 }
 
 .row {
     min-height: 338px;
     margin-top: 80px;
+    padding: 32px;
 }
 
 .col {
@@ -552,9 +548,10 @@ a {
 
 .advice_boxes {
     display: flex;
-    justify-content: space-between;
-    max-width: 1049px;
-    min-height: 342px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 32px;
 }
 
 .advice_box1 {
@@ -666,7 +663,7 @@ a {
 }
 
 .contact2 {
-    min-height: 808px;
+    padding: 32px;
 }
 
 .contact2_content {
@@ -680,7 +677,7 @@ a {
 }
 
 .get_in_touch {
-    margin: 0 auto;
+    margin: 32px auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -792,6 +789,8 @@ a {
 
 .contact2_links {
     display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
     align-items: center;
 }
 
@@ -925,6 +924,9 @@ a {
 .about_bottom_part {
     margin-top: 100px;
     display: flex;
+    gap: 32px;
+    padding: 32px;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -996,7 +998,6 @@ html {
 }
 
 .header__nav {
-    max-width: 1322px;
     min-height: 104px;
     margin: 0 auto;
     display: flex;
@@ -1023,6 +1024,7 @@ html {
     min-height: 272px;
     display: flex;
     align-items: center;
+    padding: 32px;
 }
 
 .footer_links_content {
@@ -1113,6 +1115,7 @@ html {
 .footer_social_content {
     max-width: 1050px;
     flex: 1;
+    padding: 8px;
     display: flex;
     justify-content: space-between;
 }
@@ -1146,12 +1149,6 @@ html {
     display: none;
 }
 
-@media (max-width: 1440px) {
-    .wrapper {
-        background-size: 100vw auto;
-    }
-}
-
 @media (max-width: 1415px) {
     .nav__bar__toggler {
         margin-right: 39px;
@@ -1163,8 +1160,10 @@ html {
         flex-direction: row;
 		flex-wrap: wrap;
 		margin: 30px;
+        padding: 32px;
+        gap: 32px;
+        justify-content: space-evenly;
         align-items: center;
-        min-height: 900px;
     }
     .feature_icon_content {
         width: 50vw;
@@ -1197,8 +1196,10 @@ html {
     .advice_boxes {
         flex-direction: row;
 		flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 32px;
 		margin: 30px;
-        height: 1415px;
+        padding: 32px;
     }
     .nav__bar__toggler {
         display: flex;
@@ -1232,9 +1233,6 @@ html {
         background-repeat: no-repeat;
         background-size: auto 2026px;
     }
-    .container {
-        min-height: 1365px;
-    }
     .right_reserved {
         width: 236px;
         height: 48px;
@@ -1262,13 +1260,12 @@ html {
         background: linear-gradient(to top, #252B42 212px, #fff 0px);
     }
     .contact2_links {
-        min-height: 1119px;
         flex-direction: row;
 		flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        gap: 32px;
     }
     .contact2_content {
-        min-height: 1416px;
         justify-content: space-around;
     }
     .contact_email_main {
@@ -1286,9 +1283,10 @@ html {
     .logos {
         flex-direction: row;
 		flex-wrap: wrap;
-        min-height: 952px;
-        justify-content: space-around;
+        justify-content: space-evenly;
+        gap: 32px;
 		margin: 30px;
+        padding: 32px;
         margin-top: 30px;
         margin-bottom: 30px;
     }
@@ -1305,9 +1303,9 @@ html {
         display: none;
     }
     .contact2 {
-        min-height: 1531px;
         align-items: center;
         display: flex;
+        padding: 32px;
     }
     .cta {
         flex-direction: column;
