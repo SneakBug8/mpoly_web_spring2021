@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/normalize.css">
@@ -11,21 +12,27 @@
   <script src="js/main.js" charset="utf-8"></script>
   <title>Lab9 Nakonechnyy</title>
 </head>
+
 <body>
   <div class="container">
     <h1>Empty title</h1>
     <div class="row">
       <div class="four columns">
         <h2>Left column</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quidem facilis error nemo voluptatem eius harum, architecto cupiditate repellendus neque?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quidem facilis error nemo voluptatem eius harum,
+          architecto cupiditate repellendus neque?</p>
       </div>
       <div class="four columns">
         <h2>Central block</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod facere quibusdam reiciendis natus aperiam soluta illo architecto mollitia quae nemo fugit perferendis dicta, doloribus omnis ducimus, explicabo nam iste laboriosam voluptatem? Libero consequatur incidunt voluptatem quaerat accusamus porro, maiores obcaecati earum. Tenetur officia id provident facere quaerat reprehenderit excepturi.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod facere quibusdam reiciendis natus
+          aperiam soluta illo architecto mollitia quae nemo fugit perferendis dicta, doloribus omnis ducimus, explicabo
+          nam iste laboriosam voluptatem? Libero consequatur incidunt voluptatem quaerat accusamus porro, maiores
+          obcaecati earum. Tenetur officia id provident facere quaerat reprehenderit excepturi.</p>
       </div>
       <div class="four columns">
         <h2>Right column</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quidem facilis error nemo voluptatem eius harum, architecto cupiditate repellendus neque?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quidem facilis error nemo voluptatem eius harum,
+          architecto cupiditate repellendus neque?</p>
       </div>
     </div>
   </div>
@@ -50,7 +57,21 @@
           <td>3</td>
         </tr>
       </tbody>
-  </table>
+    </table>
+    <div id="addResp" class="twelve columns">
+      <label hidden for="name">Имя</label>
+      <input class="three columns" type="text" maxlength="50" id="name" placeholder="Имя">
+      <label for="mark" class="one column">Оценка</label>
+      <select class="three columns" id="mark">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <button class="button-primary three columns" id="button">Отправить</button>
+    </div>
   </div>
 </body>
+
 </html>

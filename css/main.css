@@ -24,6 +24,10 @@ h2 {
     font-size: 2em;
 }
 
+.button-primary:focus {
+    box-shadow: 0 0 5px 5px #33C3F0;
+}
+
 @media print {
     h5 {
         font-size: 2em;
