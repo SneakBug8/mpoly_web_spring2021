@@ -113,5 +113,8 @@ new Vue({
         {
             this.darkTheme = !this.darkTheme;
         },
+        deleteItem(item) {
+            this.todoList.splice(this.todoList.indexOf(item), 1);
+        },
     },
 });
