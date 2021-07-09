@@ -12,7 +12,30 @@ new Vue({
             darkTheme: false,
         };
     },
-    computed: {},
+    computed: {
+        today: function() {
+            var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1;
+            var yyyy = today.getFullYear();
+
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+
+            today = {
+                day: weekday[today.getDay()],
+                date: mm + '-' + dd + '-' + yyyy,
+            }
+
+            return (today);
+        }
+    },
     mounted() {
         if (localStorage.getItem('theme')) {
             this.darkTheme = true && localStorage.getItem('theme');
