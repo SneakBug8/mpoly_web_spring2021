@@ -9,6 +9,11 @@
 </head>
 
 <body>
+    <picture>
+        <source media="(min-width:650px)" srcset="images/communications.png">
+        <source media="(min-width:465px)" srcset="images/cost.png">
+        <img src="images/integration.png" alt="Logo" style="width:auto;">
+      </picture>
     <div id="app" v-bind:class="{ dark: darkTheme }">
         <section class="todo-wrapper">
             <h1 class="todo-title">{{ today.day }}<br>{{ today.date }}</h1>
