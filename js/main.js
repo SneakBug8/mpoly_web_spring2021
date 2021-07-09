@@ -46,20 +46,23 @@ new Vue({
     },
     watch: {
         todoList: {
-            handler: function(updatedList) {
+            handler: function (updatedList)
+            {
                 localStorage.setItem('todo_list', JSON.stringify(updatedList));
             },
             deep: true
         },
-		// 5
+        // 5
         darkTheme: {
-            handler: function(u) {
+            handler: function (u)
+            {
                 localStorage.setItem('theme', (u * 1) + "");
             },
         }
     },
     methods: {
-        getTodos() {
+        getTodos()
+        {
             if (localStorage.getItem('todo_list')) {
                 this.todoList = JSON.parse(localStorage.getItem('todo_list'));
             }
@@ -70,16 +73,18 @@ new Vue({
         },
         addItem()
         {
-            if (this.new_todo) {
+            if (this.new_todo && this.picked) {
                 this.todoList.unshift({
                     id: this.todoList.length,
                     title: this.new_todo,
                     done: false,
                     importance: this.picked
                 });
+                this.new_todo = '';
+                this.picked = 3;
+                this.modalOpened = false;
             }
             else {
-                console.log("Animate shake");
                 const self = this
                 self.animated = true
                 setTimeout(() =>
@@ -87,9 +92,6 @@ new Vue({
                     self.animated = false
                 }, 1000);
             }
-            this.new_todo = '';
-            this.picked = 3;
-            this.modalOpened = false;
             return true;
         },
         clearAll()
