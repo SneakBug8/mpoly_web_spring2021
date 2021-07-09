@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+.dark {
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+.dark .todo-wrapper {
+    background-color: #121213;
+}
+
+.dark ul.todo-list li {
+    background: #2d2f31;
+}
+
+.dark ul.todo-list.archived li {
+    background: #0a0a0a;
+}
+
+.dark input[type='text'] {
+    background: #2b2b2b;
+    color: white;
+}
+
+.dark input[type='text']::placeholder {
+    color: #999999;
+}
+
+.dark .btn-add {
+    background: #333333;
+    color: #4b4b4b;
+}
+
+.dark .btn-add.active {
+    background: #6664ff;
+    border-color: #6664ff;
+    pointer-events: visible;
+	color: white;
+}
+
+.dark .btn-add.active:hover {
+    background: #4442f6;
+    border-color: #4442f6;
+}
+
+.dark .btn-add:active {
+    transform: scale(0.95);
+}
