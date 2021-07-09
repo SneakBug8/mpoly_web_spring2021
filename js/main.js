@@ -34,7 +34,20 @@ new Vue({
             }
 
             return (today);
-        }
+        },
+        pending: function() {
+            return this.todoList.filter(function(item) {
+                return !item.done;
+            })
+        },
+        completed: function() {
+            return this.todoList.filter(function(item) {
+                return item.done;
+            });
+        },
+        completedPercentage: function() {
+            return (Math.floor((this.completed.length / this.todoList.length) * 100)) + "%";
+        },
     },
     mounted() {
         if (localStorage.getItem('theme')) {
@@ -48,8 +61,26 @@ new Vue({
             },
         }
     },
-    computed: {
-    },
     methods: {
+        toggleShowComplete() {
+            this.showComplete = !this.showComplete;
+        },
+        addItem() {
+            // validation check
+            if (this.new_todo) {
+                this.todoList.unshift({
+                    id: this.todoList.length,
+                    title: this.new_todo,
+                    done: false,
+                });
+            }
+            // reset new_todo
+            this.new_todo = '';
+            // save the new item in localstorage
+            return true;
+        },
+        clearAll() {
+            this.todoList = [];
+        }
     },
 });
