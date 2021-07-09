@@ -4,10 +4,10 @@ new Vue({
     {
         return {
             todoList: [
-                { "id": 0, "title": "Go to codepen and get inspired", "done": false, importance: 3 },
-                { "id": 1, "title": "Pick a project", "done": false, importance: 2 },
+                { "id": 0, "title": "Big width item", "done": false, importance: 3 },
+                { "id": 1, "title": "Medium item", "done": false, importance: 2 },
                 { "id": 2, "title": "Small-width item", "done": false, importance: 1 },
-                { "id": 4, "title": "Create a new pen", "done": true, importance: 1 }
+                { "id": 4, "title": "Archived item", "done": true, importance: 1 }
             ],
             new_todo: '',
             showComplete: false,
@@ -39,26 +39,37 @@ new Vue({
     },
     mounted()
     {
+        this.getTodos();
         if (localStorage.getItem('theme')) {
             this.darkTheme = true && localStorage.getItem('theme');
         }
     },
     watch: {
+        todoList: {
+            handler: function(updatedList) {
+                localStorage.setItem('todo_list', JSON.stringify(updatedList));
+            },
+            deep: true
+        },
+		// 5
         darkTheme: {
-            handler: function (u)
-            {
+            handler: function(u) {
                 localStorage.setItem('theme', (u * 1) + "");
             },
         }
     },
     methods: {
+        getTodos() {
+            if (localStorage.getItem('todo_list')) {
+                this.todoList = JSON.parse(localStorage.getItem('todo_list'));
+            }
+        },
         toggleShowComplete()
         {
             this.showComplete = !this.showComplete;
         },
         addItem()
         {
-            // validation check
             if (this.new_todo) {
                 this.todoList.unshift({
                     id: this.todoList.length,
@@ -76,11 +87,9 @@ new Vue({
                     self.animated = false
                 }, 1000);
             }
-            // reset new_todo
             this.new_todo = '';
             this.picked = 3;
             this.modalOpened = false;
-            // save the new item in localstorage
             return true;
         },
         clearAll()
@@ -90,6 +99,7 @@ new Vue({
         showModal()
         {
             this.modalOpened = true;
+            this.$refs.closebutton.focus();
         },
         hideModal()
         {

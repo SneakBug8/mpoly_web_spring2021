@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+*:focus {
+    border: 5px solid red;
+}
+
 body {
     font-size: 15px;
     font-family: 'Open Sans', sans-serif;
@@ -63,7 +67,6 @@ header {
 .todo-wrapper {
     width: 80%;
     max-width: 1000px;
-    min-height: 500px;
     margin: 20px auto 40px;
     border: 1px solid #eee;
     border-radius: 4px;
@@ -108,9 +111,10 @@ input[type='text'] {
     transition: all ease-in 0.25s;
 }
 
+.btn:focus,
 input:focus {
     outline: none;
-    border: 1px solid #a3b1ff;
+    border: 2px solid #a3b1ff;
 }
 
 input::placeholder {
@@ -176,13 +180,13 @@ input::placeholder {
 }
 
 .btn-close {
-    display: block;
+    float: right;
     min-width: 17%;
     transition: all ease-in 0.25s;
     font-size: 2.2em;
     line-height: 0.5em;
     padding: 0.3em 0.3em;
-    width: 80%;
+    max-width: 100%;
     margin: auto;
     background: #ff6464;
 }
@@ -253,17 +257,22 @@ input::placeholder {
     }
 }
 
+.radio-block {
+    margin: 16px 0;
+}
+
 .radio {
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 1rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    text-align: left;
 }
 
 /* Hide the browser's default radio button */
@@ -287,7 +296,8 @@ input::placeholder {
 }
 
 /* On mouse-over, add a grey background color */
-.radio:hover input~.checkmark {
+.radio:hover input~.checkmark,
+.radio input:focus~.checkmark {
     background-color: #ccc;
 }
 
@@ -357,6 +367,7 @@ input::placeholder {
     height: 100%;
     top: 50%;
     right: 0;
+    border: 0;
     transform: translateY(-50%);
     cursor: pointer;
     width: 44px;
@@ -373,7 +384,7 @@ input::placeholder {
     height: 16px;
     top: 50%;
     left: 50%;
-    background-image: url('https://nourabusoud.github.io/vue-todo-list/images/trash.svg');
+    background-image: url('/images/trash.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -381,7 +392,7 @@ input::placeholder {
     transition: all ease-in 0.25s;
 }
 
-.todo-list div:hover .delete:after {
+.todo-list div .delete:hover:after {
     transform: translate(-50%, -50%) scale(1);
 }
 
@@ -491,59 +502,28 @@ footer a {
 }
 
 .todoitem.w3 {
-    width: 960px;
+    max-width: 960px;
+    width: 100%;
     height: auto;
-    flex-grow: 3;
     background-color: #a40606;
     background-image: linear-gradient(315deg, #a40606 0%, #d92a24 74%);
 }
 
 .todoitem.w2 {
-    width: 640px;
+    max-width: 640px;
+    width: 100%;
     height: auto;
-    flex-grow: 2;
     background-color: #fbb034;
     background-image: linear-gradient(315deg, #99702e 0%, #aa9300 74%);
 }
 
 .todoitem.w1 {
-    width: 320px;
-    height: 320px;
-    flex-grow: 1;
+    max-width: 320px;
+    width: 100%;
     background-color: #3bb78f;
     background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
 }
 
-@media (max-width: 1500px) {
-    .todoitem.w3 {
-        width: 640px;
-        flex-grow: 3;
-    }
-
-    .todoitem.w2 {
-        width: 320px;
-        flex-grow: 2;
-    }
-
-    .todoitem.w1 {
-        width: 160px;
-        flex-grow: 1;
-    }
-}
-
-@media (max-width: 900px) {
-    .todoitem.w3 {
-        width: 400px;
-        flex-grow: 3;
-    }
-
-    .todoitem.w2 {
-        width: 300px;
-        flex-grow: 2;
-    }
-
-    .todoitem.w1 {
-        width: 200px;
-        flex-grow: 1;
-    }
+.hidden {
+    display: none;
 }

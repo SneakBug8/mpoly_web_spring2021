@@ -27,48 +27,54 @@
             <a class="btn btn-secondary" tabIndex="0" v-if="darkTheme" @click="swapTheme">Light theme</a>
         </header>
         <section class="todo-wrapper">
-            <div class="modal" v-if="modalOpened">
+            <div class="btn-modal-container">
+                <button aria-label="Create new item" class="btn btn-primary btn-modal" @click="showModal">+</button>
+            </div>
+
+            <div class="modal" v-bind:class="{ hidden: !modalOpened}">
                 <div class="modal-content">
-                    <button class="btn btn-primary btn-close" @click="hideModal">x</button>
+                    <div class="clearfix">
+                        <button tabIndex="0" aria-label="Close window" ref="closebutton"
+                            class="btn btn-primary btn-close" @click="hideModal">x</button>
+                    </div>
                     <form @keydown.enter.prevent="" action="javascript:void(0);">
                         <div>
                             <input type="text" aria-label="What do you need to do?" name="todoText" class="input-todo"
                                 v-bind:class="{ active: new_todo }" placeholder="Take the garbage out"
                                 v-model="new_todo" v-on:keyup.enter="addItem" autofocus>
                         </div>
-                        <div>
+                        <div class="radio-block">
                             <label class="radio">
                                 <input type="radio" id="three" value="3" v-model="picked">
                                 Very important
-                                <span class="checkmark"></span>
+                                <span class="checkmark" tabindex="0"></span>
                             </label>
                             <label class="radio">
                                 <input type="radio" id="two" value="2" v-model="picked">
                                 Somewhat important
-                                <span class="checkmark"></span>
+                                <span class="checkmark" tabindex="0"></span>
                             </label>
                             <label class="radio">
                                 <input type="radio" id="one" value="1" v-model="picked">
                                 Not important
-                                <span class="checkmark"></span>
+                                <span class="checkmark" tabindex="0"></span>
                             </label>
                         </div>
-                        <button class="btn btn-primary btn-add"
+                        <button aria-label="Add item" class="btn btn-primary btn-add"
                             v-bind:class="{ active: new_todo && picked, shake: animated}" @click="addItem">+</button>
                     </form>
                 </div>
             </div>
-            <div class="btn-modal-container">
-                <button class="btn btn-primary btn-modal" @click="showModal">+</button>
-            </div>
 
             <div v-if="pending.length > 0">
                 <transition-group name="todo-item" tag="div" class="todo-list">
-                    <div tabIndex="0" v-for="(item, index) in pending" v-bind:key="item.title" :class="{ todoitem: true, w3: item.importance == 3, w2: item.importance == 2, w1: item.importance == 1}">
-                        <input class="todo-checkbox" v-bind:id="'item_' + item.id" v-model="item.done" type="checkbox">
-                        <label v-bind:for="'item_' + item.id"></label>
+                    <div v-for="(item, index) in pending" v-bind:key="item.title"
+                        :class="{ todoitem: true, w3: item.importance == 3, w2: item.importance == 2, w1: item.importance == 1}">
+                        <input aria-label="Mark done" class="todo-checkbox" v-bind:id="'item_' + item.id"
+                            v-model="item.done" type="checkbox">
+                        <label tabIndex="0" v-bind:for="'item_' + item.id"></label>
                         <span class="todo-text">{{ item.title }}</span>
-                        <span class="delete" @click="deleteItem(item)"></span>
+                        <button aria-label="Delete item" class="delete" @click="deleteItem(item)"></button>
                     </div>
                     </transition>
             </div>
@@ -80,7 +86,8 @@
             <div v-if="completed.length > 0 && showComplete">
                 <p class="status">Completed tasks: {{ completedPercentage }}</p>
                 <transition-group name="todo-item" tag="div" class="todo-list archived">
-                    <div v-for="(item, index) in completed" v-bind:key="item.title" v-bind:class="{ w: item.importance}">
+                    <div v-for="(item, index) in completed" v-bind:key="item.title"
+                        v-bind:class="{ w: item.importance}">
                         <input class="todo-checkbox" v-bind:id="'item_' + item.id" v-model="item.done" type="checkbox">
                         <label v-bind:for="'item_' + item.id"></label>
                         <span class="todo-text">{{ item.title }}</span>
