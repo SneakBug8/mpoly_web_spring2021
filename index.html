@@ -27,11 +27,10 @@
             <a class="btn btn-secondary" tabIndex="0" v-if="darkTheme" @click="swapTheme">Light theme</a>
         </header>
         <section class="todo-wrapper">
-            <h1 class="todo-title">{{ today.day }}<br>{{ today.date }}</h1>
             <div class="modal" v-if="modalOpened">
                 <div class="modal-content">
-                    <button class="btn btn-add" @click="hideModal">x</button>
-                    <form @keydown.enter.prevent="">
+                    <button class="btn btn-add active" @click="hideModal">x</button>
+                    <form @keydown.enter.prevent="" action="javascript:void(0);">
                         <input type="text" aria-label="What do you need to do?" name="todoText" class="input-todo"
                             v-bind:class="{ active: new_todo }" placeholder="Take the garbage out" v-model="new_todo"
                             v-on:keyup.enter="addItem" autofocus>
@@ -39,11 +38,11 @@
                     </form>
                 </div>
             </div>
-            <button class="btn btn-add" @click="showModal">+</button>
+            <div class="btn-modal-container">
+                <button class="btn btn-add active btn-modal" @click="showModal">+</button>
+            </div>
 
             <div v-if="pending.length > 0">
-                <p class="status busy">You have {{ pending.length }} pending item<span v-if="pending.length>1">s</span>
-                </p>
                 <transition-group name="todo-item" tag="ul" class="todo-list">
                     <li tabIndex="0" v-for="(item, index) in pending" v-bind:key="item.title">
                         <input class="todo-checkbox" v-bind:id="'item_' + item.id" v-model="item.done" type="checkbox">
