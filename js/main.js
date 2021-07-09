@@ -6,6 +6,7 @@ new Vue({
             todoList: [
                 { "id": 0, "title": "Go to codepen and get inspired", "done": false, importance: 3 },
                 { "id": 1, "title": "Pick a project", "done": false, importance: 2 },
+                { "id": 2, "title": "Small-width item", "done": false, importance: 1 },
                 { "id": 4, "title": "Create a new pen", "done": true, importance: 1 }
             ],
             new_todo: '',
@@ -63,6 +64,7 @@ new Vue({
                     id: this.todoList.length,
                     title: this.new_todo,
                     done: false,
+                    importance: this.picked
                 });
             }
             else {
@@ -76,6 +78,7 @@ new Vue({
             }
             // reset new_todo
             this.new_todo = '';
+            this.picked = 3;
             this.modalOpened = false;
             // save the new item in localstorage
             return true;

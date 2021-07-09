@@ -63,13 +63,13 @@
             </div>
 
             <div v-if="pending.length > 0">
-                <transition-group name="todo-item" tag="ul" class="todo-list">
-                    <li tabIndex="0" v-for="(item, index) in pending" v-bind:key="item.title">
+                <transition-group name="todo-item" tag="div" class="todo-list">
+                    <div tabIndex="0" v-for="(item, index) in pending" v-bind:key="item.title" :class="{ todoitem: true, w3: item.importance == 3, w2: item.importance == 2, w1: item.importance == 1}">
                         <input class="todo-checkbox" v-bind:id="'item_' + item.id" v-model="item.done" type="checkbox">
                         <label v-bind:for="'item_' + item.id"></label>
                         <span class="todo-text">{{ item.title }}</span>
                         <span class="delete" @click="deleteItem(item)"></span>
-                    </li>
+                    </div>
                     </transition>
             </div>
 
@@ -79,19 +79,19 @@
 
             <div v-if="completed.length > 0 && showComplete">
                 <p class="status">Completed tasks: {{ completedPercentage }}</p>
-                <transition-group name="todo-item" tag="ul" class="todo-list archived">
-                    <li v-for="(item, index) in completed" v-bind:key="item.title">
+                <transition-group name="todo-item" tag="div" class="todo-list archived">
+                    <div v-for="(item, index) in completed" v-bind:key="item.title" v-bind:class="{ w: item.importance}">
                         <input class="todo-checkbox" v-bind:id="'item_' + item.id" v-model="item.done" type="checkbox">
                         <label v-bind:for="'item_' + item.id"></label>
                         <span class="todo-text">{{ item.title }}</span>
                         <span class="delete" @click="deleteItem(item)"></span>
-                    </li>
+                    </div>
                     </transition>
             </div>
         </section>
     </div>
     <footer>
-        Made with ❤ <a href="https://sneakbug8.com">Paul Nakonechnyy</a>
+        Наконечный Павел, 191-362, 09.07.2021
     </footer>
 
     <script src="js/vue.min.js"></script>
