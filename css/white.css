@@ -27,7 +27,8 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -137,6 +138,21 @@ input::placeholder {
     border-color: #ddd;
 }
 
+.btn.active {
+    background: #6664ff;
+    border-color: #6664ff;
+    pointer-events: visible;
+}
+
+.btn-primary:hover {
+    background: #4442f6;
+    border-color: #4442f6;
+}
+
+.btn-add:active {
+    transform: scale(0.95);
+}
+
 .btn-add {
     background: #ddd;
     min-width: 17%;
@@ -175,19 +191,9 @@ input::placeholder {
     background: #ff6464;
 }
 
-.btn.active {
-    background: #6664ff;
-    border-color: #6664ff;
-    pointer-events: visible;
-}
-
-.btn-primary:hover {
-    background: #4442f6;
-    border-color: #4442f6;
-}
-
-.btn-add:active {
-    transform: scale(0.95);
+.btn-close:hover {
+    background: #fd5555;
+    border-color: #f64242;
 }
 
 .control-buttons {
