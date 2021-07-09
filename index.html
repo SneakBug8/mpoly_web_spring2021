@@ -9,24 +9,37 @@
 </head>
 
 <body>
-    <picture>
-        <source media="(min-width:650px)" srcset="images/communications.png">
-        <source media="(min-width:465px)" srcset="images/cost.png">
-        <img src="images/integration.png" alt="Logo" style="width:auto;">
-      </picture>
+
     <div id="app" v-bind:class="{ dark: darkTheme }">
+        <header>
+            <div class="clearfix">
+                <picture>
+                    <source media="(min-width:650px)" srcset="images/communications.png">
+                    <source media="(min-width:465px)" srcset="images/cost.png">
+                    <img class="logo" src="images/integration.png" alt="Logo" style="width:auto;">
+                </picture>
+                <h2 class="title">Nakonechnyy Todo App</h2>
+            </div>
+            <a tabIndex="0" class="btn btn-secondary" v-if="completed.length > 0" @click="toggleShowComplete"><span
+                    v-if="!showComplete">Show</span><span v-else>Hide</span> Complete</a>
+            <a class="btn btn-secondary" tabIndex="0" v-if="todoList.length > 0" @click="clearAll">Clear All</a>
+            <a class="btn btn-secondary" tabIndex="0" v-if="!darkTheme" @click="swapTheme">Dark theme</a>
+            <a class="btn btn-secondary" tabIndex="0" v-if="darkTheme" @click="swapTheme">Light theme</a>
+        </header>
         <section class="todo-wrapper">
             <h1 class="todo-title">{{ today.day }}<br>{{ today.date }}</h1>
-            <div class="modal">
-            <div class="modal-content">
-                <form @keydown.enter.prevent="">
-                    <input type="text" aria-label="What do you need to do?" name="todoText" class="input-todo"
-                        v-bind:class="{ active: new_todo }" placeholder="Take the garbage out" v-model="new_todo"
-                        v-on:keyup.enter="addItem" autofocus>
-                    <button class="btn btn-add" v-bind:class="{ active: new_todo }" @click="addItem">+</button>
-                </form>
+            <div class="modal" v-if="modalOpened">
+                <div class="modal-content">
+                    <button class="btn btn-add" @click="hideModal">x</button>
+                    <form @keydown.enter.prevent="">
+                        <input type="text" aria-label="What do you need to do?" name="todoText" class="input-todo"
+                            v-bind:class="{ active: new_todo }" placeholder="Take the garbage out" v-model="new_todo"
+                            v-on:keyup.enter="addItem" autofocus>
+                        <button class="btn btn-add" v-bind:class="{ active: new_todo }" @click="addItem">+</button>
+                    </form>
                 </div>
             </div>
+            <button class="btn btn-add" @click="showModal">+</button>
 
             <div v-if="pending.length > 0">
                 <p class="status busy">You have {{ pending.length }} pending item<span v-if="pending.length>1">s</span>
@@ -55,11 +68,6 @@
                         <span class="delete" @click="deleteItem(item)"></span>
                     </li>
                     </transition>
-            </div>
-            <div class="control-buttons">
-                <a tabIndex="0" class="btn btn-secondary" v-if="completed.length > 0" @click="toggleShowComplete"><span
-                        v-if="!showComplete">Show</span><span v-else>Hide</span> Complete</a>
-                <a class="btn btn-secondary" tabIndex="0" v-if="todoList.length > 0" @click="clearAll">Clear All</a>
             </div>
         </section>
     </div>

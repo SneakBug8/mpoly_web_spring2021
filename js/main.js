@@ -10,6 +10,7 @@ new Vue({
             new_todo: '',
             showComplete: false,
             darkTheme: false,
+            modalOpened: false,
         };
     },
     computed: {
@@ -81,6 +82,15 @@ new Vue({
         },
         clearAll() {
             this.todoList = [];
-        }
+        },
+        showModal() {
+            this.modalOpened = true;
+        },
+        hideModal() {
+            this.modalOpened = false;
+        },
+        swapTheme() {
+            this.darkTheme = !this.darkTheme;
+        },
     },
 });
