@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-*:focus {
-    border: 5px solid red;
-}
-
 body {
     font-size: 15px;
     font-family: 'Open Sans', sans-serif;
@@ -98,11 +94,11 @@ form label {
 input {
     line-height: 2em;
     border-radius: 3px;
-    border: 0;
     display: inline-block;
     margin: 15px 0;
     padding: 0.2em 1em;
     font-size: 1em;
+    border: 2px solid transparent;
 }
 
 input[type='text'] {
@@ -111,8 +107,15 @@ input[type='text'] {
     transition: all ease-in 0.25s;
 }
 
+.btn,
+input,
+button {
+    border: 2px solid transparent;
+}
+
 .btn:focus,
-input:focus {
+input:focus,
+button:focus {
     outline: none;
     border: 2px solid #a3b1ff;
 }
@@ -126,7 +129,6 @@ input::placeholder {
     text-align: center;
     font-weight: bold;
     cursor: pointer;
-    border-width: 1px;
     border-style: solid;
 }
 
@@ -208,7 +210,6 @@ input::placeholder {
 .btn-secondary {
     display: inline-block;
     position: relative;
-    border: 0;
     padding: 0;
     margin: 0 10px;
 }
@@ -392,7 +393,8 @@ input::placeholder {
     transition: all ease-in 0.25s;
 }
 
-.todo-list div .delete:hover:after {
+.todo-list div .delete:hover:after ,
+.todo-list div .delete:focus:after {
     transform: translate(-50%, -50%) scale(1);
 }
 
