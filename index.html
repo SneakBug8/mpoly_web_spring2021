@@ -40,10 +40,14 @@
                     </div>
                     <form @keydown.enter.prevent="" action="javascript:void(0);">
                         <div>
+                            <label>
+                                What do you need to do?
                             <input type="text" aria-label="What do you need to do?" name="todoText" class="input-todo"
                                 v-bind:class="{ active: new_todo }" placeholder="Take the garbage out"
                                 v-model="new_todo" v-on:keyup.enter="addItem" autofocus>
+                            </label>
                         </div>
+                        How important is it?
                         <div class="radio-block">
                             <label class="radio">
                                 <input type="radio" id="three" value="3" v-model="picked">

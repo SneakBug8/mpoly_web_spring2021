@@ -10,7 +10,7 @@ body {
     background-image: linear-gradient(#fc6c48 0%, #ef5081 100%);
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 50px 20px;
+    padding: 30px 20px;
     margin: 0;
     min-height: 100vh;
     position: relative;
@@ -26,7 +26,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-content {
@@ -38,11 +38,17 @@ body {
 }
 
 header {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
     width: 80%;
+    max-width: 1000px;
+    margin: 10px auto 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 20px 20px;
+    -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+    background-color: #f4f7fc;
+    overflow: hidden;
+    position: relative;
 }
 
 .logo,
@@ -84,9 +90,8 @@ form {
     overflow: overlay;
 }
 
-form label {
+form {
     /* display: block; */
-    text-align: center;
     font-size: 1.2em;
 }
 
@@ -102,7 +107,7 @@ input {
 }
 
 input[type='text'] {
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     min-width: 100%;
     transition: all ease-in 0.25s;
 }
@@ -146,6 +151,7 @@ input::placeholder {
     pointer-events: visible;
 }
 
+.btn-primary:focus,
 .btn-primary:hover {
     background: #4442f6;
     border-color: #4442f6;
@@ -193,6 +199,7 @@ input::placeholder {
     background: #ff6464;
 }
 
+.btn-close:focus,
 .btn-close:hover {
     background: #fd5555;
     border-color: #f64242;
