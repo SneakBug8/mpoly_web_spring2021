@@ -1,6 +1,7 @@
 new Vue({
     el: '#app',
-    data() {
+    data()
+    {
         return {
             todoList: [
                 { "id": 0, "title": "Go to codepen and get inspired", "done": false },
@@ -11,40 +12,50 @@ new Vue({
             showComplete: false,
             darkTheme: false,
             modalOpened: false,
+            animated: false,
         };
     },
     computed: {
-        pending: function() {
-            return this.todoList.filter(function(item) {
+        pending: function ()
+        {
+            return this.todoList.filter(function (item)
+            {
                 return !item.done;
             })
         },
-        completed: function() {
-            return this.todoList.filter(function(item) {
+        completed: function ()
+        {
+            return this.todoList.filter(function (item)
+            {
                 return item.done;
             });
         },
-        completedPercentage: function() {
+        completedPercentage: function ()
+        {
             return (Math.floor((this.completed.length / this.todoList.length) * 100)) + "%";
         },
     },
-    mounted() {
+    mounted()
+    {
         if (localStorage.getItem('theme')) {
             this.darkTheme = true && localStorage.getItem('theme');
         }
     },
     watch: {
         darkTheme: {
-            handler: function(u) {
+            handler: function (u)
+            {
                 localStorage.setItem('theme', (u * 1) + "");
             },
         }
     },
     methods: {
-        toggleShowComplete() {
+        toggleShowComplete()
+        {
             this.showComplete = !this.showComplete;
         },
-        addItem() {
+        addItem()
+        {
             // validation check
             if (this.new_todo) {
                 this.todoList.unshift({
@@ -53,21 +64,34 @@ new Vue({
                     done: false,
                 });
             }
+            else {
+                console.log("Animate shake");
+                const self = this
+                self.animated = true
+                setTimeout(() =>
+                {
+                    self.animated = false
+                }, 1000);
+            }
             // reset new_todo
             this.new_todo = '';
             // save the new item in localstorage
             return true;
         },
-        clearAll() {
+        clearAll()
+        {
             this.todoList = [];
         },
-        showModal() {
+        showModal()
+        {
             this.modalOpened = true;
         },
-        hideModal() {
+        hideModal()
+        {
             this.modalOpened = false;
         },
-        swapTheme() {
+        swapTheme()
+        {
             this.darkTheme = !this.darkTheme;
         },
     },

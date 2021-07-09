@@ -29,17 +29,17 @@
         <section class="todo-wrapper">
             <div class="modal" v-if="modalOpened">
                 <div class="modal-content">
-                    <button class="btn btn-add active" @click="hideModal">x</button>
+                    <button class="btn btn-primary btn-close" @click="hideModal">x</button>
                     <form @keydown.enter.prevent="" action="javascript:void(0);">
                         <input type="text" aria-label="What do you need to do?" name="todoText" class="input-todo"
                             v-bind:class="{ active: new_todo }" placeholder="Take the garbage out" v-model="new_todo"
                             v-on:keyup.enter="addItem" autofocus>
-                        <button class="btn btn-add" v-bind:class="{ active: new_todo }" @click="addItem">+</button>
+                        <button class="btn btn-primary btn-add" v-bind:class="{ active: new_todo, shake: animated}" @click="addItem">+</button>
                     </form>
                 </div>
             </div>
             <div class="btn-modal-container">
-                <button class="btn btn-add active btn-modal" @click="showModal">+</button>
+                <button class="btn btn-primary btn-modal" @click="showModal">+</button>
             </div>
 
             <div v-if="pending.length > 0">
