@@ -1,3 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+	border: 5px solid red;
+}
+
+body {
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    color: #444;
+    background-color: #fefefe;
+    background-image: linear-gradient(#fc6c48 0%, #ef5081 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px 20px;
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+}
+
 .modal {
     position: fixed;
     z-index: 1;
@@ -20,7 +42,7 @@
 
 header {
     background-color: #fefefe;
-    margin: 5% auto;
+    margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
@@ -31,11 +53,137 @@ header {
 }
 
 .title {
-    margin-left: 55px;
+    margin-left: 15px;
 }
 
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
+}
+
+.todo-wrapper {
+    width: 400px;
+    max-width: 100%;
+    min-height: 500px;
+    margin: 20px auto 40px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 40px 20px;
+    -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+    background-color: #f4f7fc;
+    overflow: hidden;
+    position: relative;
+}
+
+.todo-title {
+    font-size: 1.2em;
+    color: #f65c65;
+    font-weight: normal;
+}
+
+form {
+    overflow: overlay;
+}
+
+form label {
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.btn,
+input {
+    line-height: 2em;
+    border-radius: 3px;
+    border: 0;
+    display: inline-block;
+    margin: 15px 0;
+    padding: 0.2em 1em;
+    font-size: 1em;
+}
+
+input[type='text'] {
+    border: 1px solid #ddd;
+    min-width: 80%;
+    transition: all ease-in 0.25s;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #a3b1ff;
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+    font-style: italic;
+}
+
+.btn {
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.btn-add {
+    background: #ddd;
+    color: #fefefe;
+    border-color: #ddd;
+    min-width: 17%;
+    pointer-events: none;
+    transition: all ease-in 0.25s;
+    font-size: 2.2em;
+    line-height: 0.5em;
+    padding: 0.3em 0.3em;
+    float: right;
+}
+
+.btn-add.active {
+    background: #6664ff;
+    border-color: #6664ff;
+    pointer-events: visible;
+}
+
+.btn-add.active:hover {
+    background: #4442f6;
+    border-color: #4442f6;
+}
+
+.btn-add:active {
+    transform: scale(0.95);
+}
+
+.control-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.btn-secondary {
+    display: inline-block;
+    position: relative;
+    border: 0;
+    padding: 0;
+    margin: 0 10px;
+}
+
+.btn-secondary:after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: #f4586e;
+    bottom: 0px;
+    left: 0;
+    transition: all ease-in 0.25s;
+}
+
+.btn-secondary:hover:after {
+    width: 100%;
 }
