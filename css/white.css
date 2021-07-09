@@ -343,6 +343,8 @@ input::placeholder {
     margin-top: 30px;
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
+    align-content: center;
 }
 
 .todo-list div {
@@ -352,11 +354,10 @@ input::placeholder {
     margin: 10px 0;
     background: #e0e8f5;
     border-radius: 3px;
-    padding-left: 38px;
-    /* custom checkbox width + 16 */
+    padding-left: 30px;
     padding-top: 12px;
     padding-bottom: 12px;
-    padding-right: 49px;
+    padding-right: 40px;
     margin: 12px;
 }
 
@@ -372,13 +373,12 @@ input::placeholder {
 
 .todo-list div .delete {
     position: absolute;
-    height: 100%;
-    top: 50%;
     right: 0;
+    top: 0;
     border: 0;
-    transform: translateY(-50%);
     cursor: pointer;
-    width: 44px;
+    height: 32px;
+    width: 32px;
     opacity: 1;
     background-color: #f56468;
     color: #fff;
@@ -400,7 +400,7 @@ input::placeholder {
     transition: all ease-in 0.25s;
 }
 
-.todo-list div .delete:hover:after ,
+.todo-list div .delete:hover:after,
 .todo-list div .delete:focus:after {
     transform: translate(-50%, -50%) scale(1);
 }
@@ -414,9 +414,8 @@ input::placeholder {
 .todo-checkbox+label {
     position: absolute;
     cursor: pointer;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    left: 5px;
+    top: 5px;
     width: 22px;
     height: 22px;
     border-radius: 2px;
@@ -511,24 +510,22 @@ footer a {
 }
 
 .todoitem.w3 {
-    max-width: 960px;
-    width: 100%;
+    width: 320px;
     height: auto;
     background-color: #a40606;
     background-image: linear-gradient(315deg, #a40606 0%, #d92a24 74%);
 }
 
 .todoitem.w2 {
-    max-width: 640px;
-    width: 100%;
+    width: 210px;
     height: auto;
     background-color: #fbb034;
     background-image: linear-gradient(315deg, #99702e 0%, #aa9300 74%);
 }
 
 .todoitem.w1 {
-    max-width: 320px;
-    width: 100%;
+    width: 150px;
+    height: 150px;
     background-color: #3bb78f;
     background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
 }
