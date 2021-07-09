@@ -31,10 +31,30 @@
                 <div class="modal-content">
                     <button class="btn btn-primary btn-close" @click="hideModal">x</button>
                     <form @keydown.enter.prevent="" action="javascript:void(0);">
-                        <input type="text" aria-label="What do you need to do?" name="todoText" class="input-todo"
-                            v-bind:class="{ active: new_todo }" placeholder="Take the garbage out" v-model="new_todo"
-                            v-on:keyup.enter="addItem" autofocus>
-                        <button class="btn btn-primary btn-add" v-bind:class="{ active: new_todo, shake: animated}" @click="addItem">+</button>
+                        <div>
+                            <input type="text" aria-label="What do you need to do?" name="todoText" class="input-todo"
+                                v-bind:class="{ active: new_todo }" placeholder="Take the garbage out"
+                                v-model="new_todo" v-on:keyup.enter="addItem" autofocus>
+                        </div>
+                        <div>
+                            <label class="radio">
+                                <input type="radio" id="three" value="3" v-model="picked">
+                                Very important
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" id="two" value="2" v-model="picked">
+                                Somewhat important
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" id="one" value="1" v-model="picked">
+                                Not important
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <button class="btn btn-primary btn-add"
+                            v-bind:class="{ active: new_todo && picked, shake: animated}" @click="addItem">+</button>
                     </form>
                 </div>
             </div>

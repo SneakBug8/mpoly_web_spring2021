@@ -4,15 +4,16 @@ new Vue({
     {
         return {
             todoList: [
-                { "id": 0, "title": "Go to codepen and get inspired", "done": false },
-                { "id": 1, "title": "Pick a project", "done": false },
-                { "id": 4, "title": "Create a new pen", "done": true }
+                { "id": 0, "title": "Go to codepen and get inspired", "done": false, importance: 3 },
+                { "id": 1, "title": "Pick a project", "done": false, importance: 2 },
+                { "id": 4, "title": "Create a new pen", "done": true, importance: 1 }
             ],
             new_todo: '',
             showComplete: false,
             darkTheme: false,
             modalOpened: false,
             animated: false,
+            picked: 3,
         };
     },
     computed: {
@@ -75,6 +76,7 @@ new Vue({
             }
             // reset new_todo
             this.new_todo = '';
+            this.modalOpened = false;
             // save the new item in localstorage
             return true;
         },
@@ -88,6 +90,8 @@ new Vue({
         },
         hideModal()
         {
+            this.new_todo = "";
+            this.picked = 3;
             this.modalOpened = false;
         },
         swapTheme()
